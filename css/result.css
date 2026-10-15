@@ -1,0 +1,587 @@
+/* ===============================
+   사주 결과 페이지
+================================ */
+
+.result-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100vh;
+}
+
+.result-section[hidden] {
+  display: none;
+}
+
+.result-inner {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+
+  padding: 42px 40px;
+
+  overflow: hidden;
+}
+
+
+/* ===============================
+   결과 제목
+================================ */
+
+.result-title {
+  margin-bottom: 30px;
+}
+
+.result-title h2 {
+  margin: 0 0 10px;
+
+  font-size: 44px;
+  font-weight: 800;
+}
+
+.result-title p {
+  margin: 0;
+
+  font-size: 16px;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+}
+
+
+/* ===============================
+   사주 표 전체
+================================ */
+
+.saju-table {
+  display: grid;
+
+  grid-template-columns:
+    90px
+    minmax(0, 1fr);
+
+  gap: 14px;
+
+  width: 100%;
+}
+
+
+/* ===============================
+   왼쪽 행 제목
+================================ */
+
+.row-labels {
+  display: grid;
+
+  grid-template-rows:
+    44px
+    48px
+    145px
+    145px
+    48px
+    64px
+    48px
+    48px
+    48px;
+
+  gap: 10px;
+}
+
+.empty-label {
+  height: 44px;
+}
+
+.row-label {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+
+/* ===============================
+   시주 / 일주 / 월주 / 년주
+================================ */
+
+.pillar-columns {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+.pillar-column {
+  display: grid;
+
+  grid-template-rows:
+    44px
+    48px
+    145px
+    145px
+    48px
+    64px
+    48px
+    48px
+    48px;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+
+/* ===============================
+   시주 / 일주 / 월주 / 년주 제목
+================================ */
+
+.pillar-label {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+}
+
+
+/* ===============================
+   십성
+================================ */
+
+.ten-god-cell {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+
+  border-radius: 15px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.90);
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+.lower-ten-god {
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+
+/* ===============================
+   천간 / 지지
+================================ */
+
+.pillar-cell {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+
+  border-radius: 20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05);
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
+}
+
+.stem-cell {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.035)
+    );
+}
+
+.branch-cell {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.025)
+    );
+}
+
+.pillar-cell strong {
+  font-size: 58px;
+
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+.pillar-cell span {
+  margin-top: 12px;
+
+  font-size: 14px;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+/* ===============================
+   지장간
+================================ */
+
+.hidden-stems-cell {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-width: 0;
+
+  padding: 8px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+.hidden-stem-item {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 4px;
+}
+
+
+.hidden-stem-item strong {
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.90);
+}
+
+
+.hidden-stem-item span {
+  font-size: 12px;
+
+  font-weight: 500;
+
+  color:
+    rgba(255, 255, 255, 0.52);
+}
+
+
+/* ===============================
+   12운성
+================================ */
+
+.twelve-stage-cell {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+/* ===============================
+   12신살
+================================ */
+
+.twelve-sinsal-cell {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+
+/* ===============================
+   공망
+================================ */
+
+.gongmang-cell {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+}
+
+
+/* 실제 공망에 해당하는 기둥 */
+
+.gongmang-cell.is-gongmang {
+  color:
+    rgba(218, 194, 255, 0.95);
+
+  background:
+    rgba(145, 105, 210, 0.12);
+
+  border:
+    1px solid
+    rgba(180, 140, 245, 0.26);
+
+  box-shadow:
+    inset 0 0 18px
+    #9b73dc0f;
+}
+
+/* =========================================
+   지장간 겹침 수정
+========================================= */
+
+/*
+  지장간 행의 높이를 조금 확보
+*/
+.row-labels,
+.pillar-column {
+  grid-template-rows:
+    44px
+    48px
+    145px
+    145px
+    48px
+    72px
+    48px
+    48px
+    48px;
+}
+
+
+/*
+  지장간 한 칸
+*/
+.hidden-stem-cell {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding:
+    6px 8px !important;
+}
+
+
+/*
+  丁 乙 己 같은 지장간은
+  반드시 한 줄에 표시
+*/
+.hidden-stem-list {
+  display: flex !important;
+
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+}
+
+
+/*
+  각각의 지장간
+*/
+.hidden-stem-item {
+  flex:
+    1 1 0;
+
+  min-width: 0;
+  max-width: 54px;
+
+  height: 52px;
+
+  margin: 0 !important;
+
+  display: flex !important;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  white-space: nowrap;
+
+  transform: none !important;
+}
+
+
+.hidden-stem-item strong {
+  display: block;
+
+  font-size: 17px;
+
+  line-height: 1.1;
+}
+
+
+.hidden-stem-item small {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 9px;
+
+  line-height: 1;
+}
+
+
+/*
+  부모 hover 때문에
+  지장간 글자가 움직이며 겹치지 않도록 함
+*/
+.hidden-stem-cell:hover
+.hidden-stem-item {
+  transform: none !important;
+}
+
+
+/* ===============================
+   태블릿
+================================ */
+
+@media (max-width: 900px) {
+
+  .result-inner {
+    overflow-x: auto;
+  }
+
+  .saju-table {
+    min-width: 720px;
+  }
+
+}
+
+
+/* ===============================
+   모바일
+================================ */
+
+@media (max-width: 600px) {
+
+  .result-inner {
+    padding:
+      30px
+      18px;
+
+    overflow-x: auto;
+  }
+
+  .result-title h2 {
+    font-size: 34px;
+  }
+
+  .saju-table {
+    min-width: 680px;
+  }
+
+}

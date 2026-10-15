@@ -1,0 +1,741 @@
+/* =========================================
+   신강 · 신약 독립 페이지
+========================================= */
+
+.strength-section {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  padding:
+    104px
+    40px
+    50px;
+
+  box-sizing: border-box;
+}
+
+
+.strength-inner {
+  width: 100%;
+
+  max-width: 1500px;
+
+  padding: 40px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 28px;
+
+  background:
+    rgba(29, 29, 35, 0.76);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  box-shadow:
+    0 22px 70px
+    rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================
+   제목
+========================================= */
+
+.strength-title-row {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 28px;
+}
+
+
+.strength-title-row h2 {
+  margin:
+    0 0 10px;
+
+  color: #ffffff;
+
+  font-size: 46px;
+
+  letter-spacing:
+    -0.04em;
+}
+
+
+.strength-title-row p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+.strength-confidence {
+  flex:
+    0 0 auto;
+
+  padding:
+    9px 13px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  color:
+    rgba(255, 255, 255, 0.70);
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   핵심 3칸
+========================================= */
+
+.strength-summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 14px;
+}
+
+
+.strength-main-card {
+  min-height: 135px;
+
+  padding:
+    21px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 19px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+
+.strength-main-card > span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.47);
+
+  font-size: 12px;
+}
+
+
+.strength-main-card > strong {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #ffffff;
+
+  font-size: 27px;
+
+  line-height: 1.25;
+}
+
+
+.strength-main-card > strong em {
+  color:
+    rgba(255, 255, 255, 0.40);
+
+  font-size: 13px;
+
+  font-style: normal;
+}
+
+
+.strength-main-card > small {
+  display: block;
+
+  color:
+    rgba(255, 255, 255, 0.52);
+
+  line-height: 1.6;
+}
+
+
+.strength-main-card.is-weak {
+  border-color:
+    rgba(111, 151, 255, 0.28);
+}
+
+
+.strength-main-card.is-balanced {
+  border-color:
+    rgba(255, 255, 255, 0.15);
+}
+
+
+.strength-main-card.is-strong {
+  border-color:
+    rgba(255, 191, 84, 0.28);
+}
+
+
+/* =========================================
+   게이지
+========================================= */
+
+.strength-meter {
+  margin:
+    30px 2px
+    24px;
+}
+
+
+.strength-meter-track {
+  position: relative;
+
+  height: 10px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+
+.strength-meter-fill {
+  position: absolute;
+
+  inset:
+    0 auto 0 0;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(88, 128, 255, 0.80),
+      rgba(235, 235, 240, 0.80),
+      rgba(255, 184, 66, 0.80)
+    );
+}
+
+
+.strength-meter-center {
+  position: absolute;
+
+  z-index: 2;
+
+  top: -4px;
+
+  bottom: -4px;
+
+  left: 50%;
+
+  width: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.42);
+}
+
+
+.strength-meter-labels {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.36);
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   도움 / 소모
+========================================= */
+
+.strength-balance-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 14px;
+
+  margin-bottom: 14px;
+}
+
+
+.strength-balance-row article {
+  padding:
+    18px 20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+
+.strength-balance-row span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color:
+    rgba(255, 255, 255, 0.46);
+
+  font-size: 12px;
+}
+
+
+.strength-balance-row strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #ffffff;
+
+  font-size: 21px;
+}
+
+
+.strength-balance-row small {
+  color:
+    rgba(255, 255, 255, 0.42);
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   세부 계산
+========================================= */
+
+.strength-factor-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 11px;
+}
+
+
+.strength-factor-card {
+  padding:
+    16px 18px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+}
+
+
+.strength-factor-card.is-support {
+  border-color:
+    rgba(121, 205, 145, 0.18);
+}
+
+
+.strength-factor-card.is-pressure {
+  border-color:
+    rgba(225, 130, 130, 0.18);
+}
+
+
+.strength-factor-head {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 8px;
+}
+
+
+.strength-factor-head span {
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  font-size: 13px;
+}
+
+
+.strength-factor-head strong {
+  color: #ffffff;
+
+  font-size: 15px;
+}
+
+
+.strength-factor-card p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   판정 핵심
+========================================= */
+
+.strength-reading-box {
+  margin-top: 17px;
+
+  padding:
+    18px 20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+
+.strength-reading-box strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 13px;
+}
+
+
+.strength-reading-box p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   ★ 7단계 해석
+========================================= */
+
+.strength-interpretation {
+  margin-top: 26px;
+
+  padding-top: 26px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.strength-interpretation-title {
+  margin-bottom: 16px;
+}
+
+
+.strength-interpretation-title > span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    0.16em;
+}
+
+
+.strength-interpretation-title h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 23px;
+
+  letter-spacing:
+    -0.03em;
+}
+
+
+.strength-interpretation-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 12px;
+}
+
+
+.strength-interpretation-card {
+  min-height: 150px;
+
+  padding:
+    20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+
+.strength-reading-label {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+
+.strength-interpretation-card p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.59);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+.strength-interpretation-card.core {
+  border-color:
+    rgba(255, 255, 255, 0.11);
+}
+
+
+.strength-interpretation-card.favorable {
+  border-color:
+    rgba(124, 198, 144, 0.16);
+}
+
+
+.strength-interpretation-card.caution {
+  border-color:
+    rgba(225, 150, 150, 0.16);
+}
+
+
+.strength-interpretation-note {
+  margin:
+    15px 2px
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.36);
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   계산 메모
+========================================= */
+
+.strength-note {
+  margin:
+    18px 2px
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.30);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   Tablet
+========================================= */
+
+@media (
+  max-width: 900px
+) {
+
+  .strength-section {
+    padding:
+      96px
+      24px
+      40px;
+  }
+
+
+  .strength-inner {
+    padding:
+      28px;
+  }
+
+
+  .strength-summary-grid,
+  .strength-factor-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .strength-interpretation-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (
+  max-width: 640px
+) {
+
+  .strength-section {
+    padding:
+      84px
+      12px
+      24px;
+  }
+
+
+  .strength-inner {
+    padding:
+      22px
+      16px;
+
+    border-radius:
+      20px;
+  }
+
+
+  .strength-title-row {
+    flex-direction:
+      column;
+  }
+
+
+  .strength-title-row h2 {
+    font-size:
+      34px;
+  }
+
+
+  .strength-balance-row {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .strength-main-card > strong {
+    font-size:
+      22px;
+  }
+
+
+  .strength-interpretation-card {
+    min-height: auto;
+  }
+
+}

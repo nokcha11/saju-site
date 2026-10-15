@@ -1,0 +1,526 @@
+/* =========================================
+   전체 페이지 이동 기준
+========================================= */
+
+:root {
+  --site-header-top: 16px;
+  --site-header-height: 64px;
+
+  /*
+    헤더 아래 실제 콘텐츠 시작 위치
+
+    16px
+    + 헤더 약 64px
+    + 여유 24px
+    = 104px
+  */
+  --page-content-top: 104px;
+}
+
+
+/* =========================================
+   중요
+
+   기존 scroll-margin-top 때문에
+   이전 페이지가 위에 남았습니다.
+
+   이제 섹션 자체의 맨 처음으로 이동하고,
+   섹션 내부 padding으로 헤더 공간을 확보합니다.
+========================================= */
+
+html {
+  scroll-behavior: smooth;
+
+  scroll-padding-top: 0 !important;
+}
+
+
+#manse,
+#sajuSummarySection,
+#resultSection,
+#relationsSection,
+#elementsSection,
+#strengthSection,
+#sinsalSection,
+#today {
+  scroll-margin-top: 0 !important;
+}
+
+
+/* =========================================
+   각 페이지 공통
+
+   ★ 이전 페이지가 보이지 않도록
+     각 섹션 시작점 자체를 화면 맨 위로 맞춤
+
+   ★ 헤더 공간은 section 내부에서 확보
+========================================= */
+
+#sajuSummarySection,
+#resultSection,
+#relationsSection,
+#elementsSection,
+#strengthSection,
+#sinsalSection,
+#today {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  padding-top:
+    var(--page-content-top) !important;
+
+  padding-bottom:
+    50px !important;
+
+  box-sizing: border-box;
+
+  clear: both;
+}
+
+
+/* =========================================
+   첫 입력 페이지
+
+   헤더가 fixed이므로
+   입력 화면 역시 내부에서 공간 확보
+========================================= */
+
+#manse {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin-top: 0 !important;
+
+  padding-top:
+    var(--page-content-top) !important;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   신강 · 신약
+
+   기존 strength.css에서
+   세로 가운데 정렬되면서 아래로 밀리는 현상 방지
+========================================= */
+
+#strengthSection {
+  align-items: flex-start !important;
+
+  justify-content: center !important;
+}
+
+
+/* =========================================
+   연속된 페이지 사이에
+   외부 margin이 끼지 않도록
+========================================= */
+
+.app > section {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+
+/* =========================================
+   상단 고정 헤더
+========================================= */
+
+.site-header {
+  position: fixed;
+
+  z-index: 10000;
+
+  top:
+    var(--site-header-top);
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 28px;
+
+  width:
+    min(
+      1460px,
+      calc(100% - 64px)
+    );
+
+  min-height:
+    var(--site-header-height);
+
+  padding:
+    10px
+    18px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+
+  border-radius:
+    22px;
+
+  background:
+    rgba(23, 23, 28, 0.82);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  box-shadow:
+    0 16px 50px
+    rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================
+   로고
+========================================= */
+
+.site-brand {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  flex:
+    0 0 auto;
+
+  color: #ffffff;
+
+  text-decoration: none;
+}
+
+
+.site-brand-symbol {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 40px;
+
+  height: 40px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+
+.site-brand strong {
+  font-size: 17px;
+
+  letter-spacing:
+    0.12em;
+}
+
+
+/* =========================================
+   메뉴
+========================================= */
+
+.site-nav {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  min-width: 0;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+
+.site-nav::-webkit-scrollbar {
+  display: none;
+}
+
+
+.site-nav a {
+  flex:
+    0 0 auto;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 38px;
+
+  padding:
+    0
+    12px;
+
+  border-radius: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.66);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.site-nav a:hover {
+  color: #ffffff;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================
+   Tablet
+========================================= */
+
+@media (
+  max-width: 1100px
+) {
+
+  :root {
+    --site-header-top: 12px;
+
+    --site-header-height: 60px;
+
+    --page-content-top: 96px;
+  }
+
+
+  .site-header {
+    width:
+      calc(
+        100% - 32px
+      );
+
+    gap: 14px;
+
+    padding:
+      9px
+      12px;
+  }
+
+
+  .site-nav {
+    justify-content:
+      flex-start;
+  }
+
+
+  .site-nav a {
+    padding:
+      0
+      9px;
+
+    font-size:
+      12px;
+  }
+
+}
+
+
+/* =========================================
+   Mobile
+   - 메뉴가 화면 밖으로 잘리지 않도록 4열 그리드
+========================================= */
+
+@media (
+  max-width: 700px
+) {
+
+  :root {
+    --site-header-top: 8px;
+    --site-header-height: 154px;
+    --page-content-top: 178px;
+  }
+
+
+  .site-header {
+    width: calc(100% - 16px);
+    min-height: var(--site-header-height);
+
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    gap: 7px;
+
+    border-radius: 18px;
+
+    padding: 8px 10px 9px;
+  }
+
+
+  .site-brand {
+    width: fit-content;
+    min-height: 36px;
+  }
+
+
+  .site-brand strong {
+    display: none;
+  }
+
+
+  .site-brand-symbol {
+    width: 36px;
+    height: 36px;
+  }
+
+
+  .site-nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    justify-content: stretch;
+
+    width: 100%;
+    gap: 3px 4px;
+
+    overflow: visible;
+  }
+
+
+  .site-nav a {
+    width: 100%;
+    min-width: 0;
+    min-height: 29px;
+
+    padding: 0 3px;
+
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+
+    text-align: center;
+  }
+
+
+  #sajuSummarySection,
+  #resultSection,
+  #relationsSection,
+  #elementsSection,
+  #strengthSection,
+  #sinsalSection,
+  #today {
+    padding-bottom: 30px !important;
+  }
+
+}
+
+
+/* 아주 좁은 모바일 */
+@media (max-width: 380px) {
+
+  :root {
+    --site-header-height: 150px;
+    --page-content-top: 174px;
+  }
+
+  .site-nav a {
+    font-size: 9px;
+    padding-inline: 2px;
+  }
+
+}
+
+/* =========================================
+   상단 메뉴 글래스모피즘 강화
+   기존 위치/크기/메뉴 구조는 변경하지 않음
+========================================= */
+
+.site-header {
+  background:
+    rgba(
+      18,
+      18,
+      24,
+      0.56
+    );
+
+  backdrop-filter:
+    blur(24px)
+    saturate(145%);
+
+  -webkit-backdrop-filter:
+    blur(24px)
+    saturate(145%);
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.14
+    );
+
+  box-shadow:
+    0 16px 50px
+    rgba(
+      0,
+      0,
+      0,
+      0.30
+    ),
+
+    inset 0 1px 0
+    rgba(
+      255,
+      255,
+      255,
+      0.10
+    );
+}

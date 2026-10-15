@@ -1,0 +1,528 @@
+/* =========================================
+   신살 상세 Overlay
+========================================= */
+
+.sinsal-detail-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 900;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  background:
+    rgba(0, 0, 0, 0.48);
+
+  backdrop-filter:
+    blur(4px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+
+.sinsal-detail-overlay.open {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+/* =========================================
+   오른쪽 상세 Drawer
+========================================= */
+
+.sinsal-detail-drawer {
+  position: fixed;
+
+  top: 18px;
+  right: 18px;
+  bottom: 18px;
+
+  z-index: 1000;
+
+  width:
+    min(500px, calc(100vw - 36px));
+
+  padding:
+    34px;
+
+  overflow-y: auto;
+
+  border-radius: 28px;
+
+  transform:
+    translateX(
+      calc(100% + 40px)
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(42, 42, 46, 0.94),
+      rgba(18, 18, 21, 0.92)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.13);
+
+  box-shadow:
+    -20px 0 60px
+    rgba(0, 0, 0, 0.45);
+
+  backdrop-filter:
+    blur(24px)
+    saturate(140%);
+
+  transition:
+    transform 0.35s
+    cubic-bezier(
+      0.2,
+      0.8,
+      0.2,
+      1
+    );
+}
+
+
+.sinsal-detail-drawer.open {
+  transform:
+    translateX(0);
+}
+
+
+/* 닫기 */
+
+.sinsal-detail-close {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 25px;
+
+  color: #fff;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================
+   제목
+========================================= */
+
+.detail-heading {
+  padding-right: 40px;
+
+  margin-bottom: 30px;
+}
+
+
+.detail-heading h2 {
+  margin:
+    12px
+    0
+    10px;
+
+  font-size: 38px;
+}
+
+
+.detail-heading p {
+  margin: 0;
+
+  line-height: 1.7;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+
+.detail-type {
+  display: inline-flex;
+
+  padding:
+    6px
+    10px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+}
+
+
+.detail-type.good {
+  color:
+    rgb(236, 210, 137);
+
+  background:
+    rgba(218, 190, 112, 0.12);
+}
+
+
+.detail-type.special {
+  color:
+    rgb(199, 177, 238);
+
+  background:
+    rgba(170, 145, 215, 0.12);
+}
+
+
+/* =========================================
+   메타 정보
+========================================= */
+
+.detail-meta {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 8px;
+
+  margin-bottom: 28px;
+}
+
+
+.detail-meta > div {
+  padding:
+    14px
+    12px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.detail-meta span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 11px;
+
+  color:
+    rgba(255, 255, 255, 0.40);
+}
+
+
+.detail-meta strong {
+  font-size: 13px;
+}
+
+
+/* =========================================
+   상세 해석
+========================================= */
+
+.detail-section {
+  margin-bottom: 14px;
+
+  padding:
+    18px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.detail-section h3 {
+  margin:
+    0
+    0
+    10px;
+
+  font-size: 15px;
+}
+
+
+.detail-section p {
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255, 255, 255, 0.67);
+}
+
+
+.detail-position
++ .detail-position {
+  margin-top: 16px;
+
+  padding-top: 16px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.detail-position strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 14px;
+}
+
+
+.detail-section.caution {
+  border-color:
+    rgba(170, 145, 215, 0.14);
+}
+
+
+.detail-muted {
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+
+.detail-note {
+  margin:
+    24px
+    4px
+    4px;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+}
+
+
+/* 카드 클릭 가능 */
+
+.sinsal-card {
+  cursor: pointer;
+}
+
+
+/* =========================================
+   모바일
+========================================= */
+
+@media (max-width: 600px) {
+
+  .sinsal-detail-drawer {
+    top: auto;
+
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    width: auto;
+
+    max-height: 86vh;
+
+    border-radius: 26px;
+
+    padding:
+      28px
+      20px;
+
+    transform:
+      translateY(
+        calc(100% + 30px)
+      );
+  }
+
+
+  .sinsal-detail-drawer.open {
+    transform:
+      translateY(0);
+  }
+
+
+  .detail-meta {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* 실제 적용 결과 강조 */
+
+.detail-section.detail-result {
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.055
+    );
+}
+
+
+.detail-section.detail-result p {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+}
+
+/* =========================================
+   2026-10-15 FIX: 신살/길성 상세창 닫기 버튼 고정
+   - drawer itself does not scroll
+   - only content area scrolls
+========================================= */
+.sinsal-detail-drawer {
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+.sinsal-detail-content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 34px;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+}
+
+.sinsal-detail-close {
+  position: absolute !important;
+  top: 18px !important;
+  right: 20px !important;
+  z-index: 30 !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  background: rgba(16, 20, 30, 0.92) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.34) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sinsal-detail-close {
+  font-size: 0 !important;
+}
+
+.sinsal-detail-close::before,
+.sinsal-detail-close::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 17px;
+  height: 2px;
+  border-radius: 999px;
+  background: #fff;
+  transform-origin: center;
+}
+.sinsal-detail-close::before { transform: translate(-50%,-50%) rotate(45deg); }
+.sinsal-detail-close::after { transform: translate(-50%,-50%) rotate(-45deg); }
+
+@media (max-width: 600px) {
+  .sinsal-detail-drawer {
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: calc(100vw - 20px);
+    border-radius: 24px;
+  }
+
+  .sinsal-detail-content {
+    padding: 58px 18px 24px;
+  }
+
+  .sinsal-detail-close {
+    top: 12px !important;
+    right: 12px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+/* =========================================
+   2026-10-15 MOBILE FIX 2
+   신살/길성 상세창이 고정 헤더보다 항상 위에 표시되도록 조정
+   - header z-index: 10000 보다 높은 레이어 사용
+   - 닫기 버튼은 drawer 내부 최상위에 고정
+========================================= */
+.sinsal-detail-overlay {
+  z-index: 20000 !important;
+}
+
+.sinsal-detail-drawer {
+  z-index: 20010 !important;
+}
+
+.sinsal-detail-close {
+  z-index: 20020 !important;
+}
+
+@media (max-width: 600px) {
+  .sinsal-detail-drawer {
+    top: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    width: auto !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  .sinsal-detail-content {
+    height: 100% !important;
+    padding: 70px 18px 28px !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+  }
+
+  .sinsal-detail-close {
+    position: absolute !important;
+    top: 14px !important;
+    right: 14px !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    flex: 0 0 44px;
+  }
+}

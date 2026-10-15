@@ -1,0 +1,178 @@
+/* ===============================
+   오행 컬러 테마
+================================ */
+
+:root {
+  /* 木 - 초록 */
+  --wood-rgb: 67, 181, 129;
+
+  /* 火 - 빨강 */
+  --fire-rgb: 255, 92, 92;
+
+  /* 土 - 골드 */
+  --earth-rgb: 218, 174, 67;
+
+  /* 金 - 실버 */
+  --metal-rgb: 205, 211, 222;
+
+  /* 水 - 딥 블루 */
+  --water-rgb: 74, 89, 122;
+}
+
+
+/* ===============================
+   오행 변수
+================================ */
+
+.element-wood {
+  --element-rgb: var(--wood-rgb);
+  --element-accent: #8ee0b5;
+}
+
+.element-fire {
+  --element-rgb: var(--fire-rgb);
+  --element-accent: #ff9292;
+}
+
+.element-earth {
+  --element-rgb: var(--earth-rgb);
+  --element-accent: #e4c36b;
+}
+
+.element-metal {
+  --element-rgb: var(--metal-rgb);
+  --element-accent: #e3e6ec;
+}
+
+.element-water {
+  --element-rgb: var(--water-rgb);
+  --element-accent: #9aa9c8;
+}
+
+
+/* ===============================
+   천간 / 지지 오행 카드
+================================ */
+
+.pillar-cell.element-wood,
+.pillar-cell.element-fire,
+.pillar-cell.element-earth,
+.pillar-cell.element-metal,
+.pillar-cell.element-water {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--element-rgb), 0.20),
+      rgba(var(--element-rgb), 0.07)
+    );
+
+  border:
+    1px solid
+    rgba(var(--element-rgb), 0.34);
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08),
+
+    inset 0 0 28px
+    rgba(var(--element-rgb), 0.05),
+
+    0 0 28px
+    rgba(var(--element-rgb), 0.06);
+}
+
+
+.pillar-cell.element-wood strong,
+.pillar-cell.element-fire strong,
+.pillar-cell.element-earth strong,
+.pillar-cell.element-metal strong,
+.pillar-cell.element-water strong {
+  color: var(--element-accent);
+}
+
+
+/* 한글은 너무 튀지 않게 */
+
+.pillar-cell[class*="element-"] > span {
+  color:
+    rgba(255, 255, 255, 0.66);
+}
+
+
+/* ===============================
+   지장간 오행 표시
+================================ */
+
+.hidden-stem-item {
+  min-width: 46px;
+
+  padding:
+    6px
+    8px;
+
+  border-radius: 10px;
+}
+
+
+.hidden-stem-item.element-wood,
+.hidden-stem-item.element-fire,
+.hidden-stem-item.element-earth,
+.hidden-stem-item.element-metal,
+.hidden-stem-item.element-water {
+  background:
+    rgba(var(--element-rgb), 0.10);
+
+  border:
+    1px solid
+    rgba(var(--element-rgb), 0.18);
+}
+
+
+.hidden-stem-item[class*="element-"] strong {
+  color: var(--element-accent);
+}
+
+/* ===============================
+   천간 / 지지 호버
+================================ */
+
+.pillar-cell[class*="element-"]:hover {
+  transform:
+    translateY(-5px)
+    scale(1.025);
+
+  border-color:
+    rgba(var(--element-rgb), 0.65);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--element-rgb), 0.28),
+      rgba(var(--element-rgb), 0.10)
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.32),
+
+    0 0 28px
+    rgba(var(--element-rgb), 0.18),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.12);
+}
+
+.pillar-cell strong {
+  transition:
+    transform 0.28s ease,
+    text-shadow 0.28s ease;
+}
+
+
+.pillar-cell[class*="element-"]:hover strong {
+  transform: scale(1.08);
+
+  text-shadow:
+    0 0 18px
+    rgba(var(--element-rgb), 0.45);
+}

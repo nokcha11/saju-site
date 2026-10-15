@@ -1,0 +1,707 @@
+/* =========================================
+   원국 패턴
+   병존 · 간여지동
+========================================= */
+
+
+/* =========================================
+   외곽선 기준 부모
+========================================= */
+
+#resultSection .result-inner {
+  position: relative !important;
+
+  overflow: visible !important;
+}
+
+
+#resultSection .saju-table,
+#resultSection .pillar-columns,
+#resultSection .pillar-column {
+  overflow: visible !important;
+}
+
+
+/* =========================================
+   병존 / 간여지동 실제 셀
+========================================= */
+
+#resultSection
+.pattern-coexistence-cell,
+
+#resultSection
+.pattern-gan-yeo-cell {
+  position: relative;
+}
+
+
+/* =========================================
+   외곽선 전용 Layer
+========================================= */
+
+#resultSection
+.pillar-pattern-layer {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 100;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   공통 그룹 외곽선
+========================================= */
+
+#resultSection
+.pillar-pattern-group {
+  position: absolute;
+
+  box-sizing: border-box;
+
+  border-radius: 18px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   병존
+
+   같은 글자의 셀들을
+   하나의 금빛 사각형으로 묶음
+========================================= */
+
+#resultSection
+.pillar-pattern-group.coexistence {
+  border:
+    2px solid
+    rgba(
+      248,
+      207,
+      75,
+      0.96
+    );
+
+  box-shadow:
+
+    0 0 5px
+    rgba(
+      255,
+      221,
+      91,
+      0.85
+    ),
+
+    0 0 17px
+    rgba(
+      255,
+      210,
+      65,
+      0.25
+    ),
+
+    inset 0 0 13px
+    rgba(
+      255,
+      215,
+      80,
+      0.04
+    );
+}
+
+
+/* =========================================
+   간여지동
+
+   같은 기둥의 천간 + 지지를
+   하나의 보라색 사각형으로 묶음
+========================================= */
+
+#resultSection
+.pillar-pattern-group.gan-yeo {
+  border:
+    2px solid
+    rgba(
+      184,
+      104,
+      255,
+      0.97
+    );
+
+  box-shadow:
+
+    0 0 5px
+    rgba(
+      190,
+      112,
+      255,
+      0.88
+    ),
+
+    0 0 18px
+    rgba(
+      163,
+      71,
+      255,
+      0.28
+    ),
+
+    inset 0 0 13px
+    rgba(
+      180,
+      100,
+      255,
+      0.04
+    );
+}
+
+
+/* =========================================
+   클릭 라벨
+
+   병존/간여지동 해석창 버튼
+========================================= */
+
+#resultSection
+.pattern-group-label {
+  position: absolute;
+
+  top: -13px;
+
+  z-index: 105;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 25px;
+
+  padding:
+    0 10px;
+
+  border-radius: 999px;
+
+  font: inherit;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  pointer-events: auto !important;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+#resultSection
+.pattern-group-label:hover {
+  transform:
+    translateY(-2px);
+
+  filter:
+    brightness(1.15);
+}
+
+
+#resultSection
+.pattern-group-label:focus-visible {
+  outline:
+    2px solid #ffffff;
+
+  outline-offset:
+    2px;
+}
+
+
+/* =========================================
+   병존 라벨
+========================================= */
+
+#resultSection
+.pattern-group-label.coexistence {
+  right: 10px;
+
+  color:
+    #ffe98b;
+
+  background:
+    rgba(
+      66,
+      47,
+      7,
+      0.98
+    );
+
+  border:
+    1px solid
+    rgba(
+      255,
+      220,
+      88,
+      0.85
+    );
+
+  box-shadow:
+    0 0 12px
+    rgba(
+      255,
+      216,
+      75,
+      0.30
+    );
+}
+
+
+/* =========================================
+   간여지동 라벨
+========================================= */
+
+#resultSection
+.pattern-group-label.gan-yeo {
+  left: 10px;
+
+  color:
+    #f5e6ff;
+
+  background:
+    rgba(
+      88,
+      37,
+      135,
+      0.98
+    );
+
+  border:
+    1px solid
+    rgba(
+      207,
+      146,
+      255,
+      0.86
+    );
+
+  box-shadow:
+    0 0 12px
+    rgba(
+      181,
+      96,
+      255,
+      0.32
+    );
+}
+
+
+/* =========================================
+   하단 범례
+========================================= */
+
+.pillar-pattern-legend {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin:
+    5px
+    0
+    0;
+}
+
+
+.legend-item {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.48
+    );
+}
+
+
+.legend-item i {
+  width: 22px;
+
+  height: 3px;
+
+  border-radius: 999px;
+}
+
+
+.legend-item.coexistence i {
+  background:
+    #f5cf55;
+
+  box-shadow:
+    0 0 8px
+    rgba(
+      245,
+      207,
+      85,
+      0.7
+    );
+}
+
+
+.legend-item.gan-yeo i {
+  background:
+    #b669ff;
+
+  box-shadow:
+    0 0 8px
+    rgba(
+      182,
+      105,
+      255,
+      0.7
+    );
+}
+
+
+/* =========================================
+   모달은 메뉴보다 위
+========================================= */
+
+#patternDetailOverlay,
+#pillarDetailOverlay {
+  z-index:
+    5000 !important;
+}
+
+
+#patternDetailModal,
+#pillarDetailModal {
+  z-index:
+    5100 !important;
+}
+
+
+/* =========================================
+   모바일
+========================================= */
+
+@media (
+  max-width: 600px
+) {
+
+  #resultSection
+  .pillar-pattern-group {
+    border-radius:
+      13px;
+  }
+
+
+  #resultSection
+  .pattern-group-label {
+    top:
+      -10px;
+
+    min-height:
+      21px;
+
+    padding:
+      0 7px;
+
+    font-size:
+      7px;
+  }
+
+}
+
+/* =========================================
+   모바일 원국 가로 스크롤 복구
+   pillar-patterns의 overflow: visible이
+   result-compact의 스크롤을 덮어쓰지 않도록 최종 보정
+========================================= */
+@media (max-width: 900px) {
+  #resultSection .result-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  #resultSection .saju-table {
+    min-width: 720px !important;
+    width: 720px !important;
+    max-width: none !important;
+  }
+
+  #resultSection .pillar-columns,
+  #resultSection .pillar-column {
+    overflow: visible !important;
+  }
+
+  #resultSection .result-inner::-webkit-scrollbar {
+    height: 7px;
+  }
+
+  #resultSection .result-inner::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.20);
+  }
+
+  #resultSection .result-inner::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+/* =========================================
+   2026-10-15 모바일 원국 한 화면 맞춤
+   - 가로 스크롤 제거
+   - 시주/일주/월주/년주 4열을 화면 폭에 맞춤
+   - 병존/간여지동 오버레이는 기존 DOM 좌표를 그대로 사용
+========================================= */
+@media (max-width: 700px) {
+  #resultSection {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  #resultSection .result-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    padding: 12px 10px 14px !important;
+  }
+
+  #resultSection .saju-table {
+    display: grid !important;
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    gap: 6px !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+  }
+
+  #resultSection .pillar-columns {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  #resultSection .row-labels,
+  #resultSection .pillar-column {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+
+    grid-template-rows:
+      28px
+      34px
+      82px
+      82px
+      34px
+      48px
+      34px
+      34px
+      34px !important;
+
+    gap: 6px !important;
+  }
+
+  #resultSection .row-labels > div {
+    min-width: 0 !important;
+    padding: 0 2px !important;
+
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  #resultSection .pillar-label {
+    width: 100% !important;
+    height: 28px !important;
+    min-height: 28px !important;
+
+    font-size: 10px !important;
+    line-height: 1 !important;
+  }
+
+  #resultSection .ten-god-cell,
+  #resultSection .lower-ten-god,
+  #resultSection .stage-cell,
+  #resultSection .twelve-stage-cell,
+  #resultSection .sinsal-cell,
+  #resultSection .twelve-sinsal-cell,
+  #resultSection .gongmang-cell {
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 2px !important;
+    border-radius: 9px !important;
+
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  #resultSection .stem-cell,
+  #resultSection .branch-cell {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: 82px !important;
+    min-height: 82px !important;
+
+    padding: 4px 2px !important;
+    border-radius: 11px !important;
+  }
+
+  #resultSection .stem-cell strong,
+  #resultSection .branch-cell strong {
+    font-size: clamp(28px, 8.3vw, 34px) !important;
+    line-height: .95 !important;
+  }
+
+  #resultSection .stem-cell span,
+  #resultSection .branch-cell span {
+    margin-top: 4px !important;
+    font-size: 7px !important;
+    line-height: 1 !important;
+  }
+
+  #resultSection .hidden-stem-cell,
+  #resultSection .hidden-stems-cell {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 48px !important;
+    min-height: 48px !important;
+
+    padding: 3px 2px !important;
+    border-radius: 9px !important;
+    overflow: hidden !important;
+  }
+
+  #resultSection .hidden-stem-list {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    gap: 2px !important;
+  }
+
+  #resultSection .hidden-stem-item {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 36px !important;
+
+    padding: 2px 1px !important;
+    border-radius: 6px !important;
+  }
+
+  #resultSection .hidden-stem-item strong {
+    font-size: 9px !important;
+    line-height: 1 !important;
+  }
+
+  #resultSection .hidden-stem-item span,
+  #resultSection .hidden-stem-item small {
+    margin-top: 2px !important;
+    font-size: 5.5px !important;
+    line-height: 1 !important;
+  }
+
+  #resultSection .pillar-pattern-group {
+    border-radius: 11px !important;
+  }
+
+  #resultSection .pattern-group-label {
+    top: -8px !important;
+    min-height: 17px !important;
+    padding: 0 5px !important;
+    font-size: 6px !important;
+  }
+
+  #resultSection .pillar-pattern-legend {
+    margin-top: 5px !important;
+    font-size: 7px !important;
+  }
+
+  #resultSection .result-interaction-note {
+    font-size: 7px !important;
+    line-height: 1.35 !important;
+  }
+}
+
+@media (max-width: 390px) {
+  #resultSection .result-inner {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  #resultSection .saju-table {
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    gap: 4px !important;
+  }
+
+  #resultSection .pillar-columns {
+    gap: 3px !important;
+  }
+
+  #resultSection .row-labels > div,
+  #resultSection .ten-god-cell,
+  #resultSection .lower-ten-god,
+  #resultSection .stage-cell,
+  #resultSection .twelve-stage-cell,
+  #resultSection .sinsal-cell,
+  #resultSection .twelve-sinsal-cell,
+  #resultSection .gongmang-cell {
+    font-size: 7px !important;
+  }
+
+  #resultSection .pillar-cell strong,
+  #resultSection .stem-cell strong,
+  #resultSection .branch-cell strong {
+    font-size: 27px !important;
+  }
+}

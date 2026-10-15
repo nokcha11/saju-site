@@ -1,0 +1,567 @@
+/* =========================================
+   Overlay
+========================================= */
+
+.summary-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 12000;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  background:
+    rgba(0, 0, 0, 0.58);
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+
+.summary-modal-overlay.open {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+/* =========================================
+   Modal
+========================================= */
+
+.summary-detail-modal {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 12010;
+
+  width:
+    min(
+      570px,
+      calc(100vw - 36px)
+    );
+
+  max-height:
+    min(
+      760px,
+      calc(100vh - 40px)
+    );
+
+  padding:
+    34px;
+
+  overflow-y: auto;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translate(-50%, -46%)
+    scale(0.96);
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(43, 43, 47, 0.97),
+      rgba(16, 16, 19, 0.96)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+
+  box-shadow:
+    0 30px 90px
+    rgba(0, 0, 0, 0.58);
+
+  backdrop-filter:
+    blur(28px)
+    saturate(145%);
+
+  -webkit-backdrop-filter:
+    blur(28px)
+    saturate(145%);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.35s
+    cubic-bezier(
+      0.2,
+      0.8,
+      0.2,
+      1
+    );
+}
+
+
+.summary-detail-modal.open {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+}
+
+
+/* =========================================
+   닫기 버튼
+========================================= */
+
+.summary-modal-close {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  z-index: 12;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  background:
+    rgba(16, 20, 32, 0.82);
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.34);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.summary-modal-close:hover {
+  transform:
+    rotate(4deg);
+
+  background:
+    rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================
+   제목
+========================================= */
+
+.summary-modal-heading {
+  text-align: center;
+
+  margin-bottom: 24px;
+
+  padding:
+    0 35px;
+}
+
+
+.summary-modal-category {
+  display: inline-flex;
+
+  margin-bottom: 18px;
+
+  padding:
+    6px 10px;
+
+  border-radius: 999px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+
+.summary-modal-symbol {
+  margin-bottom: 10px;
+
+  font-size: 64px;
+
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+
+.summary-modal-animal {
+  margin-bottom: 10px;
+
+  font-size: 62px;
+
+  line-height: 1;
+}
+
+
+.summary-modal-ten-god {
+  margin-bottom: 10px;
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.83);
+}
+
+
+.summary-modal-heading h2 {
+  margin:
+    0 0 8px;
+
+  font-size: 30px;
+}
+
+
+.summary-modal-heading p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.50);
+}
+
+
+/* =========================================
+   기준 정보
+========================================= */
+
+.summary-modal-meta {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+
+  padding:
+    14px 16px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.summary-modal-meta span,
+.summary-modal-meta-grid span {
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+.summary-modal-meta strong {
+  font-size: 13px;
+}
+
+
+.summary-modal-meta-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 8px;
+
+  margin-bottom: 14px;
+}
+
+
+.summary-modal-meta-grid > div {
+  padding:
+    13px 12px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.summary-modal-meta-grid span {
+  display: block;
+
+  margin-bottom: 6px;
+}
+
+
+.summary-modal-meta-grid strong {
+  font-size: 12px;
+}
+
+
+/* =========================================
+   해석 영역
+========================================= */
+
+.summary-modal-section {
+  margin-bottom: 12px;
+
+  padding:
+    17px;
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.summary-modal-section h3 {
+  margin:
+    0 0 9px;
+
+  font-size: 14px;
+}
+
+
+.summary-modal-section p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255, 255, 255, 0.64);
+}
+
+
+.summary-modal-section.positive {
+  border-color:
+    rgba(110, 190, 145, 0.15);
+}
+
+
+.summary-modal-section.caution {
+  border-color:
+    rgba(220, 175, 100, 0.14);
+}
+
+
+/* =========================================
+   해석 결과 강조
+========================================= */
+
+.summary-modal-section.result-reading {
+  border-color:
+    rgba(255, 255, 255, 0.15);
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+
+.summary-modal-section.result-reading p {
+  color:
+    rgba(255, 255, 255, 0.82);
+}
+
+
+/* =========================================
+   직업 탐색 칩
+========================================= */
+
+.summary-career-chips {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+
+.summary-career-chips span {
+  padding:
+    8px 11px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  color:
+    rgba(255, 255, 255, 0.75);
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================
+   안내
+========================================= */
+
+.summary-modal-note {
+  margin:
+    20px 4px 2px;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+
+  color:
+    rgba(255, 255, 255, 0.30);
+}
+
+
+/* =========================================
+   Scrollbar
+========================================= */
+
+.summary-detail-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.summary-detail-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.summary-detail-modal::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================
+   모바일
+========================================= */
+
+@media (
+  max-width: 600px
+) {
+
+  .summary-detail-modal {
+    width:
+      calc(100vw - 20px);
+
+    max-height:
+      calc(100vh - 20px);
+
+    padding:
+      58px 18px 24px;
+
+    border-radius: 24px;
+  }
+
+
+  .summary-modal-close {
+    position: sticky;
+    top: 10px;
+    right: auto;
+    left: calc(100% - 42px);
+
+    width: 42px;
+    height: 42px;
+    margin: -40px 0 10px auto;
+
+    font-size: 26px;
+
+    background: rgba(12, 16, 28, 0.94);
+    border-color: rgba(137, 196, 255, 0.26);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+
+  .summary-modal-meta-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .summary-modal-heading {
+    padding:
+      0 25px;
+  }
+
+
+  .summary-modal-heading h2 {
+    font-size: 26px;
+  }
+
+
+  .summary-modal-symbol {
+    font-size: 54px;
+  }
+
+
+  .summary-modal-animal {
+    font-size: 54px;
+  }
+
+
+  .summary-modal-ten-god {
+    font-size: 36px;
+  }
+
+}

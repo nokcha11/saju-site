@@ -1,0 +1,771 @@
+/* =========================================
+   원국 클릭 가능 셀
+========================================= */
+
+.pillar-interactive {
+  position: relative;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.pillar-interactive:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(255, 255, 255, 0.075);
+
+  border-color:
+    rgba(255, 255, 255, 0.16);
+
+  box-shadow:
+    0 10px 22px
+    rgba(0, 0, 0, 0.20),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08);
+}
+
+
+/*
+  천간 / 지지는 theme.css의
+  오행색 hover가 있으면 그것을 그대로 활용
+*/
+
+.pillar-interactive:focus-visible {
+  outline:
+    2px solid
+    rgba(255, 255, 255, 0.42);
+
+  outline-offset:
+    2px;
+}
+
+
+/* 십성 */
+
+.ten-god-cell.pillar-interactive:hover {
+  color: #ffffff;
+}
+
+
+/* 지장간 */
+
+.hidden-stem-cell.pillar-interactive:hover
+.hidden-stem-item {
+  transform:
+    translateY(-1px);
+}
+
+
+/* 12운성 */
+
+.stage-cell.pillar-interactive:hover {
+  letter-spacing:
+    0.03em;
+}
+
+
+/* 안내 */
+
+.result-interaction-note {
+  margin:
+    12px 2px 0;
+
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.32);
+}
+
+
+/* =========================================
+   Modal Overlay
+========================================= */
+
+.pillar-detail-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1700;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  background:
+    rgba(0, 0, 0, 0.60);
+
+  backdrop-filter:
+    blur(8px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+
+.pillar-detail-overlay.open {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+/* =========================================
+   중앙 Modal
+========================================= */
+
+.pillar-detail-modal {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 1800;
+
+  width:
+    min(
+      580px,
+      calc(100vw - 36px)
+    );
+
+  max-height:
+    calc(100vh - 44px);
+
+  padding:
+    34px;
+
+  overflow-y: auto;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translate(-50%, -46%)
+    scale(0.96);
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(43, 43, 48, 0.98),
+      rgba(15, 15, 18, 0.97)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+
+  box-shadow:
+    0 30px 100px
+    rgba(0, 0, 0, 0.62);
+
+  backdrop-filter:
+    blur(28px)
+    saturate(145%);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.35s
+    cubic-bezier(
+      0.2,
+      0.8,
+      0.2,
+      1
+    );
+}
+
+
+.pillar-detail-modal.open {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+}
+
+
+/* =========================================
+   닫기
+========================================= */
+
+.pillar-detail-close {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 24px;
+
+  color: #fff;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  transition:
+    background 0.2s ease;
+}
+
+
+.pillar-detail-close:hover {
+  background:
+    rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================================
+   제목
+========================================= */
+
+.pillar-modal-heading {
+  padding:
+    0 36px;
+
+  margin-bottom: 24px;
+
+  text-align: center;
+}
+
+
+.pillar-modal-category {
+  display: inline-flex;
+
+  margin-bottom: 16px;
+
+  padding:
+    6px 10px;
+
+  border-radius: 999px;
+
+  font-size: 9px;
+
+  letter-spacing:
+    0.08em;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+
+.pillar-modal-main-text {
+  margin-bottom: 7px;
+
+  font-size: 46px;
+
+  font-weight: 800;
+}
+
+
+.pillar-modal-hanja {
+  margin-bottom: 7px;
+
+  font-size: 62px;
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+
+.pillar-modal-heading h2 {
+  margin:
+    0 0 7px;
+
+  font-size: 27px;
+}
+
+
+.pillar-modal-heading p {
+  margin: 0;
+
+  font-size: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+}
+
+
+/* =========================================
+   메타 정보
+========================================= */
+
+.pillar-modal-meta-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 8px;
+
+  margin-bottom: 13px;
+}
+
+
+.pillar-modal-meta-grid > div {
+  padding:
+    13px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.pillar-modal-meta-grid span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+.pillar-modal-meta-grid strong {
+  font-size: 12px;
+}
+
+
+/* =========================================
+   해석 박스
+========================================= */
+
+.pillar-modal-section {
+  margin-bottom: 12px;
+
+  padding: 17px;
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.pillar-modal-section h3 {
+  margin:
+    0 0 9px;
+
+  font-size: 14px;
+}
+
+
+.pillar-modal-section p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255, 255, 255, 0.64);
+}
+
+
+.pillar-layer-description {
+  margin-top:
+    10px !important;
+
+  padding-top:
+    10px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+}
+
+
+.pillar-modal-section.positive {
+  border-color:
+    rgba(110, 190, 145, 0.15);
+}
+
+
+.pillar-modal-section.caution {
+  border-color:
+    rgba(220, 175, 100, 0.14);
+}
+
+
+/* =========================================
+   지장간 상세
+========================================= */
+
+.pillar-hidden-detail-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+.pillar-hidden-detail {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding:
+    10px 12px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+
+.pillar-hidden-detail > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.pillar-hidden-detail strong {
+  font-size: 20px;
+}
+
+
+.pillar-hidden-detail span {
+  font-size: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.64);
+}
+
+
+.pillar-hidden-detail small {
+  padding:
+    4px 7px;
+
+  border-radius: 999px;
+
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================
+   안내
+========================================= */
+
+.pillar-modal-note {
+  margin:
+    20px 3px 2px;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+
+  color:
+    rgba(255, 255, 255, 0.30);
+}
+
+
+/* =========================================
+   모바일
+========================================= */
+
+@media (
+  max-width: 600px
+) {
+
+  /*
+    모바일에서는 모달 외곽은 고정하고,
+    실제 해석 내용(.pillar-detail-content)만 스크롤합니다.
+    따라서 닫기 버튼은 스크롤해도 항상 우측 상단에 남습니다.
+  */
+  .pillar-detail-modal {
+    width:
+      calc(100vw - 20px);
+
+    height:
+      calc(100dvh - 20px);
+
+    max-height:
+      calc(100dvh - 20px);
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+  }
+
+
+  .pillar-detail-content {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+
+    padding:
+      64px 18px 28px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+      rgba(255, 255, 255, 0.32)
+      transparent;
+  }
+
+
+  .pillar-detail-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+
+  .pillar-detail-content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+
+  .pillar-detail-content::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+
+    background:
+      rgba(255, 255, 255, 0.28);
+  }
+
+
+  .pillar-detail-close {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    z-index: 50;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.14);
+
+    color: #ffffff;
+
+    background:
+      rgba(18, 19, 25, 0.92);
+
+    box-shadow:
+      0 10px 28px
+      rgba(0, 0, 0, 0.48);
+
+    backdrop-filter:
+      blur(12px);
+
+    -webkit-backdrop-filter:
+      blur(12px);
+  }
+
+
+  .pillar-modal-meta-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .pillar-modal-heading h2 {
+    font-size: 24px;
+  }
+
+}
+
+/* =========================================
+   Natal modal: highlight exactly one priority fortune card.
+   ID scoping keeps all cycle/daily modals and the natal table unchanged.
+========================================= */
+
+:is(#pillarDetailModal, #patternDetailModal) .natal-fortune-strongest {
+  border-color: rgba(244, 208, 111, 0.92);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 208, 111, 0.32),
+    0 0 17px rgba(244, 208, 111, 0.12);
+}
+
+:is(#pillarDetailModal, #patternDetailModal) .natal-fortune-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+
+:is(#pillarDetailModal, #patternDetailModal) .natal-fortune-badge {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 3px 8px;
+  border: 1px solid rgba(244, 208, 111, 0.40);
+  border-radius: 999px;
+  background: rgba(244, 208, 111, 0.08);
+  color: #f4d06f;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+:is(#pillarDetailModal, #patternDetailModal) .natal-fortune-priority-note {
+  margin: 4px 3px 12px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* Keep only these natal dialogs above the fixed site header (z-index: 10000). */
+body > #pillarDetailOverlay,
+body > #patternDetailOverlay {
+  z-index: 10020 !important;
+}
+
+body > #pillarDetailModal,
+body > #patternDetailModal {
+  z-index: 10030 !important;
+}
+
+/* =========================================
+   병존 · 간여지동 해석 구조 정리
+   핵심 해석 + 구조 중복을 하나의 종합 해석으로 단순화
+========================================= */
+
+.pattern-detail-modal .pattern-overall-reading {
+  margin-bottom: 18px;
+}
+
+.pattern-detail-modal .pattern-overall-reading h3 {
+  margin-bottom: 10px;
+}
+
+.pattern-detail-modal .pattern-structure-details {
+  margin: 0 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+  overflow: hidden;
+}
+
+.pattern-detail-modal .pattern-structure-details summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 46px 0 18px;
+  cursor: pointer;
+  list-style: none;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+
+.pattern-detail-modal .pattern-structure-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.pattern-detail-modal .pattern-structure-details summary::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.pattern-detail-modal .pattern-structure-details[open] summary::after {
+  content: "−";
+}
+
+.pattern-detail-modal .pattern-structure-details-body {
+  padding: 0 18px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pattern-detail-modal .pattern-structure-detail-row {
+  padding-top: 14px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 13px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+@media (max-width: 640px) {
+  .pattern-detail-modal .pattern-structure-details summary {
+    min-height: 46px;
+    padding-left: 15px;
+    font-size: 12px;
+  }
+
+  .pattern-detail-modal .pattern-structure-details-body {
+    padding: 0 15px 14px;
+  }
+
+  .pattern-detail-modal .pattern-structure-detail-row {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+}

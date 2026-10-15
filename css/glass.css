@@ -1,0 +1,153 @@
+/* ===============================
+   공통 글래스모피즘
+================================ */
+
+.glass {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.11),
+      rgba(255, 255, 255, 0.06)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  backdrop-filter:
+    blur(18px)
+    saturate(140%);
+
+  -webkit-backdrop-filter:
+    blur(18px)
+    saturate(140%);
+
+  box-shadow:
+    0 10px 40px
+    rgba(0, 0, 0, 0.55),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.10),
+
+    inset 0 0 30px
+    rgba(255, 255, 255, 0.03);
+}
+
+
+/* 글래스 안 실제 내용 */
+
+.glass > * {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* 유리 반사광 */
+
+.glass::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+
+      rgba(255, 255, 255, 0.14)
+      0%,
+
+      rgba(255, 255, 255, 0.04)
+      18%,
+
+      rgba(255, 255, 255, 0)
+      40%,
+
+      rgba(255, 255, 255, 0.06)
+      68%,
+
+      rgba(255, 255, 255, 0)
+      100%
+    );
+
+  opacity: 0.8;
+}
+
+
+/* 유리 내부 글리터 */
+
+.glass::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -10%;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  opacity: 0.32;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.28) 0 1px,
+      transparent 2px
+    )
+    10px 20px / 120px 120px,
+
+    radial-gradient(
+      circle,
+      rgba(210, 210, 255, 0.24) 0 1.5px,
+      transparent 3px
+    )
+    70px 80px / 160px 160px,
+
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.18) 0 1px,
+      transparent 2px
+    )
+    40px 120px / 140px 140px;
+
+  filter: blur(0.4px);
+
+  animation:
+    glassGlitterMove
+    16s
+    linear
+    infinite;
+}
+
+
+@keyframes glassGlitterMove {
+
+  0% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(-20px, 12px, 0);
+  }
+
+  100% {
+    transform:
+      translate3d(-40px, 24px, 0);
+  }
+
+}

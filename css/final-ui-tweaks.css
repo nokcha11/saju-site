@@ -1,0 +1,593 @@
+/* =========================================
+   FINAL UI TWEAKS
+   - input panel wider than intro
+   - green birth shortcut
+   - silver compass fortune-flow menu with blue hover
+   - enhanced date/time option panels
+   - perfectly centered close X icons
+========================================= */
+
+@media (min-width: 1101px) {
+  #manse .main {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+    gap: 28px;
+  }
+
+  #manse .intro-panel h1 {
+    font-size: clamp(44px, 3.2vw, 56px);
+  }
+}
+
+/* ----- birth floating shortcut: green ----- */
+#sajuFloatingInput {
+  color: #eefef7;
+  border-color: rgba(97, 232, 174, 0.46);
+  background:
+    radial-gradient(circle at 84% 50%, rgba(111, 255, 196, 0.18), transparent 18%),
+    linear-gradient(135deg, rgba(28, 73, 58, 0.94), rgba(12, 29, 25, 0.96));
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.52),
+    0 0 0 1px rgba(90, 231, 170, 0.10),
+    0 0 24px rgba(73, 226, 160, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+#sajuFloatingInput::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: 0 0 7px;
+  background: #9effd4;
+  box-shadow: 0 0 10px rgba(108, 255, 198, 0.9);
+}
+
+#sajuFloatingInput::before {
+  content: "먼저 출생정보를 입력해 주세요";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 220px;
+  padding: 8px 11px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 10px;
+  color: rgba(255,255,255,.78);
+  background: rgba(15,18,24,.88);
+  box-shadow: 0 8px 22px rgba(0,0,0,.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 10px;
+  font-weight: 650;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  #sajuFloatingInput:hover {
+    border-color: rgba(118, 255, 198, 0.78);
+    background:
+      radial-gradient(circle at 84% 50%, rgba(132, 255, 205, 0.28), transparent 23%),
+      linear-gradient(135deg, rgba(31, 91, 69, 0.97), rgba(12, 35, 29, 0.98));
+    box-shadow:
+      0 13px 36px rgba(0, 0, 0, 0.58),
+      0 0 28px rgba(77, 237, 169, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  }
+}
+
+/* ----- fortune-flow floating navigator ----- */
+#sajuFloatingCycleNav {
+  --cycle-silver: rgba(216, 223, 237, 0.50);
+  --cycle-blue: #72b7ff;
+  width: 86px;
+  min-height: 302px;
+  padding: 12px 8px;
+  gap: 5px;
+  border-radius: 34px;
+  border-color: var(--cycle-silver);
+  background:
+    linear-gradient(180deg, rgba(26, 31, 43, 0.94), rgba(9, 13, 22, 0.96));
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.50),
+    inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+.saju-floating-cycle-label {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  color: #e8edf7;
+  border-color: rgba(220, 226, 239, 0.22);
+  background: rgba(255,255,255,0.035);
+}
+
+.saju-floating-cycle-label svg {
+  width: 26px;
+  height: 26px;
+  stroke-width: 1.45;
+}
+
+.saju-floating-cycle-button {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(235, 239, 247, 0.82);
+}
+
+.saju-floating-cycle-button__text {
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.saju-floating-cycle-divider {
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(208,216,232,.22), transparent);
+}
+
+.saju-floating-cycle-nav .is-active {
+  color: #a9d3ff;
+  border: 0;
+  background: linear-gradient(90deg, transparent, rgba(73, 145, 255, 0.14), transparent);
+  box-shadow: none;
+  text-shadow: 0 0 12px rgba(80, 157, 255, 0.42);
+}
+
+@media (hover: hover) {
+  .saju-floating-cycle-button:hover {
+    color: #b7dcff;
+    border: 0;
+    background: linear-gradient(90deg, transparent, rgba(62, 138, 255, 0.16), transparent);
+    box-shadow: none;
+    text-shadow: 0 0 13px rgba(70, 148, 255, 0.55);
+    transform: translateY(-1px);
+  }
+
+  #sajuFloatingCycleNav:hover {
+    border-color: rgba(225, 231, 242, 0.68);
+    box-shadow:
+      0 16px 40px rgba(0,0,0,.56),
+      0 0 0 1px rgba(191, 204, 225, 0.06),
+      inset 0 1px 0 rgba(255,255,255,.12);
+  }
+}
+
+/* ----- enhanced direct typing + select panels ----- */
+.birth-date-controls.has-choice-picker,
+.saju-time-input-shell {
+  position: relative;
+}
+
+.birth-date-controls.has-choice-picker #birthDate {
+  padding-right: 118px !important;
+}
+
+.saju-time-input-shell #birthTime {
+  padding-right: 118px !important;
+}
+
+.saju-choice-trigger {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;
+  height: 34px;
+  min-width: 82px;
+  padding: 0 10px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
+  color: rgba(255,255,255,.78);
+  background: rgba(10,14,22,.42);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.saju-date-choice-trigger {
+  position: relative;
+  right: auto;
+  top: auto;
+  transform: none;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  align-self: center;
+  margin-right: 8px;
+}
+
+.saju-choice-trigger svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.saju-time-input-shell {
+  width: 100%;
+}
+
+.saju-time-input-shell #birthTime {
+  width: 100%;
+}
+
+.saju-choice-trigger:hover {
+  color: #fff;
+  border-color: rgba(119,180,255,.34);
+  background: rgba(66,129,218,.12);
+}
+
+.saju-choice-panel {
+  display: none;
+  position: relative;
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  border: 1px solid rgba(154, 179, 217, 0.18);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(34, 40, 52, 0.98), rgba(17, 21, 31, 0.98));
+  box-shadow: 0 18px 38px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 20;
+}
+
+.saju-choice-panel.is-open {
+  display: block;
+  animation: sajuChoiceOpen .18s ease-out;
+}
+
+@keyframes sajuChoiceOpen {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.saju-choice-panel__title {
+  margin-bottom: 10px;
+  color: rgba(255,255,255,.58);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.saju-choice-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.saju-choice-grid--date { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.saju-choice-grid--time { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.saju-choice-select {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.11);
+  color: #eef3fb;
+  background: rgba(255,255,255,.055);
+  padding: 0 12px;
+  outline: none;
+}
+
+.saju-choice-select:focus {
+  border-color: rgba(107, 172, 255, .52);
+  box-shadow: 0 0 0 3px rgba(67, 139, 255, .10);
+}
+
+/* ----- centered X icon for summary / pillar / pattern modals ----- */
+.summary-modal-close,
+.pillar-detail-close,
+.pattern-detail-close {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+}
+
+.summary-modal-close::before,
+.summary-modal-close::after,
+.pillar-detail-close::before,
+.pillar-detail-close::after,
+.pattern-detail-close::before,
+.pattern-detail-close::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 17px;
+  height: 2px;
+  margin-left: -8.5px;
+  margin-top: -1px;
+  border-radius: 999px;
+  background: #fff;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.summary-modal-close::before,
+.pillar-detail-close::before,
+.pattern-detail-close::before { transform: rotate(45deg); }
+.summary-modal-close::after,
+.pillar-detail-close::after,
+.pattern-detail-close::after { transform: rotate(-45deg); }
+
+@media (max-width: 700px) {
+  #sajuFloatingInput::before { display: none; }
+
+  #sajuFloatingCycleNav {
+    width: 68px;
+    min-height: 248px;
+    padding: 8px 6px;
+    border-radius: 28px;
+  }
+
+  .saju-floating-cycle-label {
+    width: 40px;
+    height: 40px;
+  }
+
+  .saju-floating-cycle-label svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .saju-floating-cycle-button {
+    height: 38px;
+    min-height: 38px;
+  }
+
+  .saju-floating-cycle-button__text {
+    font-size: 11px;
+  }
+
+  .saju-date-choice-trigger {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: end;
+    margin-right: 8px;
+  }
+
+  .birth-date-controls.has-choice-picker #birthDate {
+    padding-right: 92px !important;
+  }
+
+  .saju-choice-grid--date { grid-template-columns: 1fr; }
+  .saju-choice-grid--time { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* =========================================
+   INLINE COMBO FIX
+   one field = direct typing + dropdown options
+========================================= */
+
+@media (min-width: 1101px) {
+  #manse .main {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 28px;
+  }
+
+  #manse .intro-panel h1 {
+    font-size: 56px;
+  }
+}
+
+/* old separate choice UI is no longer used */
+.saju-choice-trigger,
+.saju-choice-panel,
+.saju-choice-backdrop {
+  display: none !important;
+}
+
+/* text inputs keep the same visual style as the old date/time inputs */
+#birthDate,
+#birthTime {
+  box-sizing: border-box;
+  width: 100%;
+  height: 54px;
+  padding: 0 54px 0 16px !important;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  outline: none;
+  color: #fff;
+  background: rgba(255,255,255,.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+#birthDate:focus,
+#birthTime:focus {
+  border-color: rgba(104, 176, 255, .52);
+  box-shadow: 0 0 0 3px rgba(60, 135, 255, .10);
+}
+
+.saju-inline-combo {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.saju-inline-combo.is-open {
+  z-index: 90;
+}
+
+/* date combo takes exactly the old input cell */
+.birth-date-controls > .saju-inline-combo--date {
+  min-width: 180px;
+}
+
+.saju-inline-toggle {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  color: rgba(255,255,255,.88);
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.saju-inline-toggle:hover,
+.saju-inline-combo.is-open .saju-inline-toggle {
+  color: #b9dcff;
+  background: rgba(72, 145, 255, .10);
+}
+
+.saju-inline-toggle svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.saju-inline-toggle:disabled {
+  opacity: .38;
+  cursor: not-allowed;
+}
+
+.saju-inline-options {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid rgba(117, 178, 255, .30);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(17, 24, 38, .98), rgba(10, 15, 25, .98));
+  box-shadow: 0 16px 34px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
+  z-index: 120;
+}
+
+.saju-inline-options.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.saju-inline-options--date {
+  grid-template-columns: 1.35fr .9fr .9fr;
+  width: min(500px, 70vw);
+}
+
+.saju-inline-options--time {
+  grid-template-columns: 1.1fr .9fr .9fr;
+  width: min(430px, 62vw);
+}
+
+.saju-inline-select {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 0 34px 0 11px;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 10px;
+  outline: none;
+  color: #eef3fb;
+  background: #161d2b;
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.saju-inline-select:focus {
+  border-color: rgba(105,173,255,.60);
+  box-shadow: 0 0 0 3px rgba(57,130,255,.10);
+}
+
+.saju-inline-select option {
+  color: #f4f7fb;
+  background: #171717;
+}
+
+/* make overlay visible above the glass without changing panel height */
+#manse .form-panel,
+#manse .form-panel.glass,
+#manse .main,
+#sajuForm,
+.saju-floating-dialog .form-panel.glass,
+.saju-floating-dialog #sajuForm,
+.saju-floating-dialog .form-group {
+  overflow: visible !important;
+}
+
+@media (max-width: 700px) {
+  .birth-date-controls > .saju-inline-combo--date {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .saju-inline-options--date,
+  .saju-inline-options--time {
+    left: 0;
+    right: auto;
+    width: min(100%, calc(100vw - 48px));
+  }
+
+  .saju-inline-options--date {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .saju-inline-options--time {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .saju-inline-select {
+    height: 40px;
+    padding-left: 8px;
+    padding-right: 26px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .saju-inline-options--date,
+  .saju-inline-options--time {
+    width: min(100%, calc(100vw - 30px));
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .saju-inline-select {
+    font-size: 11px;
+  }
+}

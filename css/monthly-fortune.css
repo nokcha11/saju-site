@@ -1,0 +1,1028 @@
+/* =========================================
+   월운 月運
+========================================= */
+
+#monthlyFortuneSection {
+  display: block;
+
+  width: 100%;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin: 0 !important;
+
+  padding:
+    112px
+    32px
+    52px !important;
+
+  box-sizing: border-box;
+
+  scroll-margin-top: 0 !important;
+}
+
+
+.monthly-fortune-section {
+  position: relative;
+}
+
+
+/* =========================================
+   전체 패널
+========================================= */
+
+.monthly-fortune-inner {
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+  padding: 38px 40px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 28px;
+
+  background:
+    rgba(29, 29, 35, 0.76);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  box-shadow:
+    0 24px 80px
+    rgba(0, 0, 0, 0.24);
+}
+
+
+/* =========================================
+   제목
+========================================= */
+
+.monthly-fortune-title {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 24px;
+}
+
+
+.monthly-fortune-eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+
+.monthly-fortune-title h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(30px, 4vw, 46px);
+
+  line-height: 1.15;
+}
+
+
+.monthly-fortune-title p {
+  margin:
+    10px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   분석 연도
+========================================= */
+
+.monthly-fortune-year {
+  flex: 0 0 auto;
+
+  min-width: 150px;
+
+  padding:
+    13px 17px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+
+.monthly-fortune-year span,
+.monthly-fortune-year small {
+  display: block;
+
+  color:
+    rgba(255, 255, 255, 0.40);
+
+  font-size: 10px;
+}
+
+
+.monthly-fortune-year strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #ffffff;
+
+  font-size: 22px;
+}
+
+
+.monthly-fortune-year small {
+  margin-top: 3px;
+}
+
+
+/* =========================================
+   안내
+========================================= */
+
+.monthly-fortune-guide {
+  margin-bottom: 22px;
+
+  padding:
+    15px 18px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+}
+
+
+.monthly-fortune-guide strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  font-size: 13px;
+}
+
+
+.monthly-fortune-guide p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   12개월 카드
+========================================= */
+
+.monthly-fortune-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+.monthly-fortune-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  min-width: 0;
+  min-height: 168px;
+
+  padding: 17px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.065);
+
+  border-radius: 17px;
+
+  outline: 0;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+
+  color: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+
+.monthly-fortune-card:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.16);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+
+.monthly-fortune-card.is-selected {
+  border-color:
+    rgba(146, 166, 255, 0.48);
+
+  background:
+    rgba(120, 145, 255, 0.055);
+
+  box-shadow:
+    0 0 20px
+    rgba(120, 145, 255, 0.08);
+}
+
+
+.monthly-fortune-card.is-current {
+  border-color:
+    rgba(220, 179, 92, 0.40);
+}
+
+
+.monthly-fortune-card.is-current::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 6px;
+
+  pointer-events: none;
+
+  border:
+    1px solid
+    rgba(220, 179, 92, 0.09);
+
+  border-radius: 13px;
+}
+
+
+.monthly-fortune-card-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+
+  width: 100%;
+}
+
+
+.monthly-fortune-month {
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+.monthly-current-badge {
+  padding:
+    4px 7px;
+
+  border:
+    1px solid
+    rgba(224, 182, 91, 0.20);
+
+  border-radius: 999px;
+
+  background:
+    rgba(224, 182, 91, 0.07);
+
+  color:
+    rgba(244, 206, 127, 0.90);
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+
+.monthly-fortune-symbol-row {
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+
+.monthly-fortune-ganji {
+  color: #ffffff;
+
+  font-size: 25px;
+  line-height: 1;
+}
+
+
+.monthly-fortune-symbol-row > span {
+  color:
+    rgba(255, 255, 255, 0.44);
+
+  font-size: 10px;
+}
+
+
+.monthly-fortune-card p {
+  margin:
+    13px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+
+.monthly-fortune-status {
+  display: block;
+
+  margin-top: auto;
+
+  padding-top: 13px;
+
+  color:
+    rgba(255, 225, 160, 0.78);
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   상세 영역
+========================================= */
+
+.monthly-fortune-detail {
+  margin-top: 20px;
+
+  padding: 24px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+
+.monthly-detail-head {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 18px;
+}
+
+
+.monthly-detail-head > div > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+
+  font-size: 10px;
+}
+
+
+.monthly-detail-head h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 27px;
+}
+
+
+.monthly-detail-head h3 small {
+  margin-left: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-size: 12px;
+}
+
+
+.monthly-detail-head p {
+  margin:
+    8px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+.monthly-detail-status {
+  padding:
+    8px 11px;
+
+  border:
+    1px solid
+    rgba(239, 194, 92, 0.24);
+
+  border-radius: 11px;
+
+  background:
+    rgba(239, 194, 92, 0.06);
+
+  color:
+    rgba(255, 225, 160, 0.88);
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   대운 / 세운 / 월운 흐름
+========================================= */
+
+.monthly-flow-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+}
+
+
+.monthly-flow-row > div {
+  padding:
+    13px 15px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.055);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.016);
+}
+
+
+.monthly-flow-row span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  font-size: 9px;
+}
+
+
+.monthly-flow-row strong {
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   가장 강한 운 요약
+========================================= */
+
+.monthly-strongest-summary {
+  display: grid;
+
+  grid-template-columns:
+    minmax(190px, 0.55fr)
+    minmax(0, 1.45fr);
+
+  gap: 14px;
+
+  margin-bottom: 14px;
+
+  padding:
+    16px 18px;
+
+  border:
+    1px solid
+    rgba(239, 194, 92, 0.16);
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(239, 194, 92, 0.055),
+      rgba(255, 255, 255, 0.018)
+    );
+}
+
+
+.monthly-strongest-summary span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+
+  font-size: 9px;
+}
+
+
+.monthly-strongest-summary strong {
+  color: #ffe1a0;
+
+  font-size: 18px;
+}
+
+
+.monthly-strongest-summary p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.60);
+
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   직업 / 재물 / 연애 / 건강
+========================================= */
+
+.monthly-domain-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+.monthly-domain-card {
+  position: relative;
+
+  min-height: 170px;
+
+  padding: 16px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.055);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.015);
+}
+
+
+.monthly-domain-title {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+
+  margin-bottom: 9px;
+}
+
+
+.monthly-domain-title > span {
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+.monthly-domain-title > strong {
+  color:
+    rgba(255, 255, 255, 0.46);
+
+  font-size: 10px;
+}
+
+
+.monthly-domain-card p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 11px;
+  line-height: 1.72;
+}
+
+
+/* =========================================
+   ★ 이 달 가장 강한 운
+   대운 / 세운과 같은 금빛 강조
+========================================= */
+
+.monthly-domain-card.is-strongest {
+  border-color:
+    rgba(239, 194, 92, 0.56);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(239, 194, 92, 0.105),
+      rgba(255, 255, 255, 0.022)
+    );
+
+  box-shadow:
+    0 0 0 1px
+    rgba(239, 194, 92, 0.07),
+
+    0 14px 34px
+    rgba(0, 0, 0, 0.20),
+
+    inset 0 1px 0
+    rgba(255, 235, 181, 0.06);
+}
+
+
+.monthly-domain-card.is-strongest::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  pointer-events: none;
+
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(255, 215, 120, 0.10),
+      transparent 42%
+    );
+}
+
+
+.monthly-domain-card.is-strongest
+.monthly-domain-title,
+.monthly-domain-card.is-strongest p,
+.monthly-domain-card.is-strongest small,
+.monthly-domain-card.is-strongest em {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+.monthly-domain-card.is-strongest
+.monthly-domain-title > span {
+  color: #ffe1a0;
+
+  font-size: 12px;
+}
+
+
+.monthly-domain-card.is-strongest
+.monthly-domain-title > strong {
+  color:
+    rgba(255, 225, 160, 0.78);
+}
+
+
+.monthly-domain-peak {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-bottom: 10px;
+
+  padding:
+    4px 7px;
+
+  border:
+    1px solid
+    rgba(239, 194, 92, 0.30);
+
+  border-radius: 999px;
+
+  background:
+    rgba(239, 194, 92, 0.10);
+
+  color: #ffe1a0;
+
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+
+.monthly-domain-reason {
+  display: block;
+
+  margin-top: 10px;
+
+  color:
+    rgba(255, 225, 160, 0.56);
+
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   합 · 충
+========================================= */
+
+.monthly-relation-box {
+  margin-top: 14px;
+
+  padding:
+    14px 16px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.015);
+}
+
+
+.monthly-relation-box span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+
+  font-size: 9px;
+}
+
+
+.monthly-relation-box p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+
+.monthly-fortune-note {
+  margin:
+    17px 2px 0;
+
+  color:
+    rgba(255, 255, 255, 0.30);
+
+  font-size: 9px;
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   반응형
+========================================= */
+
+@media (
+  max-width: 1200px
+) {
+
+  .monthly-fortune-list {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+  }
+
+
+  .monthly-domain-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (
+  max-width: 760px
+) {
+
+  #monthlyFortuneSection {
+    padding:
+      96px
+      16px
+      36px !important;
+  }
+
+
+  .monthly-fortune-inner {
+    padding:
+      22px 16px;
+
+    border-radius: 20px;
+  }
+
+
+  .monthly-fortune-title,
+  .monthly-detail-head {
+    flex-direction: column;
+  }
+
+
+  .monthly-fortune-year {
+    width: 100%;
+  }
+
+
+  .monthly-fortune-list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .monthly-flow-row,
+  .monthly-domain-grid,
+  .monthly-strongest-summary {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+.monthly-domain-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.monthly-domain-rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.monthly-domain-rank-badge.rank-1 {
+  border-color: rgba(239, 194, 92, 0.45);
+  background: rgba(239, 194, 92, 0.16);
+  color: #ffe1a0;
+}
+
+.monthly-domain-rank-badge.rank-2 {
+  border-color: rgba(197, 207, 230, 0.42);
+  background: rgba(197, 207, 230, 0.12);
+  color: #e5ecff;
+}
+
+.monthly-domain-rank-badge.rank-3 {
+  border-color: rgba(201, 141, 92, 0.42);
+  background: rgba(201, 141, 92, 0.12);
+  color: #ffd0ad;
+}
+
+.monthly-domain-card.is-rank-2 {
+  border-color: rgba(197, 207, 230, 0.32);
+  background: linear-gradient(145deg, rgba(197, 207, 230, 0.08), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 0 0 1px rgba(197, 207, 230, 0.05), 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.monthly-domain-card.is-rank-2::before,
+.monthly-domain-card.is-rank-3::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  border-radius: 14px;
+}
+
+.monthly-domain-card.is-rank-2::before {
+  background: radial-gradient(circle at 20% 0%, rgba(222, 231, 255, 0.10), transparent 42%);
+}
+
+.monthly-domain-card.is-rank-2 .monthly-domain-title,
+.monthly-domain-card.is-rank-2 p,
+.monthly-domain-card.is-rank-2 small,
+.monthly-domain-card.is-rank-2 em,
+.monthly-domain-card.is-rank-3 .monthly-domain-title,
+.monthly-domain-card.is-rank-3 p,
+.monthly-domain-card.is-rank-3 small,
+.monthly-domain-card.is-rank-3 em {
+  position: relative;
+  z-index: 1;
+}
+
+.monthly-domain-card.is-rank-2 .monthly-domain-title > span {
+  color: #e5ecff;
+}
+
+.monthly-domain-card.is-rank-2 .monthly-domain-title > strong {
+  color: rgba(229, 236, 255, 0.72);
+}
+
+.monthly-domain-card.is-rank-3 {
+  border-color: rgba(201, 141, 92, 0.30);
+  background: linear-gradient(145deg, rgba(201, 141, 92, 0.08), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 0 0 1px rgba(201, 141, 92, 0.05), 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.monthly-domain-card.is-rank-3::before {
+  background: radial-gradient(circle at 20% 0%, rgba(255, 204, 168, 0.09), transparent 42%);
+}
+
+.monthly-domain-card.is-rank-3 .monthly-domain-title > span {
+  color: #ffd0ad;
+}
+
+.monthly-domain-card.is-rank-3 .monthly-domain-title > strong {
+  color: rgba(255, 208, 173, 0.72);
+}

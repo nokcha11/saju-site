@@ -1,0 +1,113 @@
+/* ===============================
+   태블릿
+================================ */
+
+@media (max-width: 1100px) {
+
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+
+  .intro-panel,
+  .form-panel {
+    min-height: auto;
+  }
+
+
+  .intro-panel h1 {
+    font-size: 46px;
+  }
+
+
+  .today-glass {
+    min-height: 600px;
+  }
+
+}
+
+
+/* ===============================
+   모바일
+================================ */
+
+@media (max-width: 768px) {
+
+  .page-section {
+    padding:
+      20px
+      16px
+      30px;
+  }
+
+
+  .header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-bottom: 24px;
+  }
+
+
+  .nav {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+
+  .nav a {
+    flex:
+      1
+      1
+      auto;
+  }
+
+
+  .intro-panel,
+  .form-panel {
+    padding:
+      24px
+      20px;
+
+    border-radius: 22px;
+  }
+
+
+  .intro-panel h1 {
+    font-size: 34px;
+
+    line-height: 1.18;
+  }
+
+
+  .intro-panel p {
+    font-size: 16px;
+  }
+
+
+  .form-title h2 {
+    font-size: 32px;
+  }
+
+
+  .radio-group {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  .today-glass {
+    min-height: 520px;
+
+    padding: 30px 20px;
+  }
+
+
+  .today-title h2 {
+    font-size: 38px;
+  }
+
+}

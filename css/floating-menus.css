@@ -1,0 +1,615 @@
+/* Floating controls only; original chart/cycle/page styles are not changed. */
+.saju-floating-menus {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  pointer-events: none;
+}
+
+.saju-floating-button {
+  position: absolute;
+  pointer-events: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  border: 1px solid #ffffff30;
+  color: #f1eef7;
+  background: linear-gradient(135deg, #34343be8, #15151bed);
+  box-shadow: 0 8px 26px #0008, inset 0 1px 0 #ffffff12;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+
+  will-change: translate, rotate;
+  animation: saju-floating-drift-a 4.8s ease-in-out infinite;
+  transition: left .36s ease, top .36s ease, transform .18s ease,
+              border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+/* 출생정보 입력: 중앙보다 살짝 오른쪽, 넓은 캡슐형 */
+#sajuFloatingInput {
+  left: 62vw;
+  top: 27vh;
+  width: clamp(154px, 13vw, 196px);
+  min-height: 58px;
+  padding: 12px 22px 12px 16px;
+  border-radius: 999px;
+}
+
+/* 오늘의 운세: 그보다 오른쪽, 작은 카드형 */
+.saju-floating-button--today {
+  left: 86vw;
+  top: 33vh;
+  width: 104px;
+  min-height: 82px;
+  padding: 12px 13px;
+  border-radius: 27px 27px 15px 27px;
+
+  flex-direction: column;
+  gap: 5px;
+
+  color: #f3dbad;
+  border-color: #dfbe795c;
+  background: linear-gradient(145deg, #41382be8, #1a1818ed);
+  box-shadow: 0 10px 30px #0009, inset 0 1px 0 #ffffff12;
+}
+
+.saju-floating-button:nth-child(2) {
+  animation-name: saju-floating-drift-b;
+  animation-duration: 5.4s;
+  animation-delay: -1.7s;
+}
+
+@keyframes saju-floating-drift-a {
+  0%, 100% { translate: 0 0; rotate: -0.15deg; }
+  35% { translate: -3px -5px; rotate: 0.12deg; }
+  70% { translate: 3px -9px; rotate: 0.22deg; }
+}
+
+@keyframes saju-floating-drift-b {
+  0%, 100% { translate: 0 -2px; rotate: 0.18deg; }
+  42% { translate: 3px -11px; rotate: -0.12deg; }
+  76% { translate: -3px -5px; rotate: -0.20deg; }
+}
+
+.saju-floating-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+}
+
+.saju-floating-button--today .saju-floating-icon { flex-basis: auto; }
+
+.saju-floating-icon svg,
+.saju-floating-close svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.saju-floating-button--today .saju-floating-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+@media (hover: hover) {
+  .saju-floating-button:hover {
+    transform: translateY(-3px) scale(1.025);
+    border-color: #ffffff66;
+    box-shadow: 0 12px 34px #0009, inset 0 1px 0 #ffffff1a;
+  }
+
+  .saju-floating-button--today:hover { border-color: #e5c274; }
+}
+
+.saju-floating-button:focus-visible,
+.saju-floating-dialog button:focus-visible,
+.saju-floating-dialog input:focus-visible,
+.saju-floating-dialog select:focus-visible,
+.saju-floating-dialog a:focus-visible {
+  outline: 2px solid #ddc18d;
+  outline-offset: 3px;
+}
+
+html.saju-floating-open {
+  overflow: hidden !important;
+  scroll-snap-type: none !important;
+  scrollbar-gutter: stable;
+}
+
+html.saju-floating-open body { overflow: hidden !important; }
+.saju-floating-placeholder { width: 100%; min-width: 0; pointer-events: none; }
+
+/* Native dialogs supply keyboard focus containment and inert background content. */
+.saju-floating-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(1160px, calc(100vw - 64px));
+  max-width: none;
+  max-height: calc(100vh - 64px);
+  max-height: calc(100dvh - 64px);
+  margin: auto;
+  padding: 0;
+  color: #f2eff7;
+  border: 1px solid #ffffff29;
+  border-radius: 26px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2c2b32f5, #131319f7);
+  box-shadow: 0 28px 100px #000b, inset 0 1px 0 #ffffff12;
+  backdrop-filter: blur(24px) saturate(130%);
+  -webkit-backdrop-filter: blur(24px) saturate(130%);
+  color-scheme: dark;
+}
+
+.saju-floating-dialog:not([open]) { display: none; }
+.saju-floating-dialog::backdrop { background: #020207ae; backdrop-filter: blur(6px); }
+.saju-floating-dialog--input { width: min(670px, calc(100vw - 64px)); }
+
+.saju-floating-frame {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 66px);
+  max-height: calc(100dvh - 66px);
+}
+
+.saju-floating-heading {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 28px 20px;
+  border-bottom: 1px solid #ffffff14;
+  background: linear-gradient(110deg, #ffffff05, transparent);
+}
+
+.saju-floating-eyebrow { color: #c7bba1; font-size: 10px; letter-spacing: 2px; }
+.saju-floating-heading h2 { margin: 7px 0 0; font-size: 25px; line-height: 1.3; }
+.saju-floating-close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ffffff22;
+  border-radius: 13px;
+  background: #ffffff07;
+  color: #ded9e6;
+  cursor: pointer;
+}
+.saju-floating-close:hover { background: #ffffff16; }
+
+.saju-floating-content {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff38 transparent;
+  padding: 24px 28px 30px;
+}
+
+/* Input: the very same form is moved into this shell and restored on close. */
+.saju-floating-dialog .form-panel.glass {
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  overflow: visible;
+}
+.saju-floating-dialog .form-panel::before,
+.saju-floating-dialog .form-panel::after,
+.saju-floating-dialog .form-title h2 { display: none; }
+.saju-floating-dialog .form-title p { margin: 0 0 24px; font-size: 14px; color: #b9b4c1; }
+.saju-floating-dialog #sajuForm { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; }
+.saju-floating-dialog .form-group { min-width: 0; gap: 10px; }
+.saju-floating-dialog .form-group:nth-child(3),
+.saju-floating-dialog .submit-btn { grid-column: 1 / -1; }
+.saju-floating-dialog .form-group > label { font-size: 13px; }
+.saju-floating-dialog .radio-group { flex-direction: row; gap: 12px; }
+.saju-floating-dialog .radio-group label,
+.saju-floating-dialog .check-label { font-size: 12px; line-height: 1.5; }
+.saju-floating-dialog .birth-date-controls { grid-template-columns: auto auto minmax(0, 1fr) auto auto; gap: 6px; }
+.saju-floating-dialog .birth-date-shift { padding: 0 9px; }
+.saju-floating-dialog input[type="date"],
+.saju-floating-dialog input[type="time"],
+.saju-floating-dialog select { min-width: 0; }
+.saju-floating-dialog .submit-btn { height: 52px; margin-top: 0; font-size: 15px; }
+
+/* Today: retain its section ID and delegated date/lotto event listeners. */
+.saju-floating-dialog #today.today-section {
+  width: 100%;
+  min-height: 0 !important;
+  height: auto;
+  margin: 0 !important;
+  padding: 0 !important;
+  scroll-snap-align: none;
+}
+.saju-floating-dialog #today .daily-shell {
+  max-width: none;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  overflow: visible;
+}
+.saju-floating-dialog #today .daily-shell::before,
+.saju-floating-dialog #today .daily-shell::after,
+.saju-floating-dialog .daily-page-heading > div:first-child > .daily-kicker,
+.saju-floating-dialog .daily-page-heading > div:first-child > h2 { display: none; }
+.saju-floating-dialog .daily-page-heading > div:first-child > p { font-size: 13px; }
+.saju-floating-dialog .daily-empty { min-height: min(45vh, 380px); padding: 20px 0; }
+
+@media (max-width: 800px) {
+  .saju-floating-dialog .daily-layer-grid,
+  .saju-floating-dialog .daily-domain-grid,
+  .saju-floating-dialog .daily-picks-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .saju-floating-menus {
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(14px, env(safe-area-inset-bottom));
+    width: auto;
+    gap: 10px;
+  }
+
+  #sajuFloatingInput {
+    width: min(58vw, 190px);
+    min-height: 50px;
+    padding: 9px 15px;
+    border-radius: 999px;
+    font-size: 12px;
+  }
+
+  .saju-floating-button--today {
+    width: 82px;
+    min-height: 68px;
+    padding: 9px 10px;
+    border-radius: 22px 22px 12px 22px;
+    font-size: 11px;
+  }
+
+  .saju-floating-icon { flex-basis: 22px; }
+  .saju-floating-icon svg { width: 20px; height: 20px; }
+  .saju-floating-button--today .saju-floating-icon svg { width: 22px; height: 22px; }
+  .saju-floating-dialog,
+  .saju-floating-dialog--input {
+    width: calc(100vw - 20px);
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    border-radius: 20px;
+  }
+  .saju-floating-frame {
+    max-height: calc(100vh - 34px);
+    max-height: calc(100dvh - 34px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  }
+  .saju-floating-heading { padding: 17px 18px; }
+  .saju-floating-heading h2 { font-size: 21px; }
+  .saju-floating-content { padding: 20px 16px 24px; }
+  .saju-floating-dialog #sajuForm { grid-template-columns: minmax(0, 1fr); gap: 19px; }
+  .saju-floating-dialog .birth-date-controls { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .saju-floating-dialog #birthDate { grid-column: 1 / -1; grid-row: 1; }
+  .saju-floating-dialog .birth-date-shift { grid-row: 2; height: 38px; padding: 0 4px; font-size: 12px; }
+  .saju-floating-dialog .daily-domain-grid,
+  .saju-floating-dialog .daily-picks-grid { grid-template-columns: minmax(0, 1fr); }
+  .saju-floating-dialog .daily-controls { display: grid; grid-template-columns: 36px minmax(0, 1fr) 36px 48px; width: 100%; gap: 5px; }
+  .saju-floating-dialog .daily-controls button { width: 100%; padding: 0; }
+  .saju-floating-dialog .daily-date-label input { width: 100%; max-width: none; padding: 0 8px; }
+  .saju-floating-dialog .daily-headline h3 { font-size: 28px; overflow-wrap: anywhere; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .saju-floating-button {
+    animation: none !important;
+    transition: none;
+    translate: none;
+    rotate: none;
+  }
+  .saju-floating-dialog *, .saju-floating-dialog *::before, .saju-floating-dialog *::after { animation: none !important; }
+}
+
+/* =========================================
+   Mobile safe dock
+   - Reserve the bottom zone so floating shortcuts do not cover page text.
+========================================= */
+@media (max-width: 700px) {
+  #manse,
+  #sajuSummarySection,
+  #resultSection,
+  #relationsSection,
+  #elementsSection,
+  #strengthSection,
+  #sinsalSection,
+  #fortuneCycleSection,
+  #annualFortuneSection,
+  #monthlyFortuneSection,
+  #today {
+    padding-bottom: 118px !important;
+  }
+
+  #sajuFloatingInput {
+    position: absolute !important;
+    left: max(12px, env(safe-area-inset-left)) !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+    width: min(58vw, 190px);
+    min-height: 50px;
+  }
+
+  #sajuFloatingToday {
+    position: absolute !important;
+    left: auto !important;
+    right: max(12px, env(safe-area-inset-right)) !important;
+    top: auto !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+    width: 82px;
+    min-height: 68px;
+  }
+}
+
+/* =========================================
+   Fortune-flow floating menu
+   - Vertical glass navigator with compact circle labels
+   - Default diamond preview + blue hover icon preview
+========================================= */
+
+.saju-floating-cycle-nav {
+  --cycle-blue: #4da3ff;
+  --cycle-blue-soft: rgba(77, 163, 255, 0.18);
+  --cycle-blue-strong: rgba(77, 163, 255, 0.34);
+  --cycle-line: rgba(155, 182, 235, 0.24);
+  position: absolute;
+  pointer-events: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 90px;
+  min-height: 330px;
+  padding: 14px 10px;
+  border: 1px solid rgba(161, 179, 214, 0.26);
+  border-radius: 36px;
+
+  color: #edf2ff;
+  background:
+    radial-gradient(circle at 30% 15%, rgba(255,255,255,0.08), transparent 38%),
+    linear-gradient(180deg, rgba(34, 40, 60, 0.92), rgba(12, 16, 28, 0.94));
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.50),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+  will-change: translate, rotate;
+  animation: saju-floating-drift-c 6.1s ease-in-out infinite -2.3s;
+  transition:
+    left .36s ease,
+    top .36s ease,
+    transform .18s ease,
+    border-color .22s ease,
+    box-shadow .22s ease,
+    background .22s ease;
+}
+
+.saju-floating-cycle-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+  margin: 0 0 2px;
+  border-radius: 50%;
+
+  color: #dfe7ff;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.saju-floating-cycle-label-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.saju-floating-cycle-label svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .98;
+}
+
+.saju-floating-cycle-button {
+  appearance: none;
+  border: 1px solid rgba(210, 221, 248, 0.24);
+
+  position: relative;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  min-height: 56px;
+  padding: 0;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(242, 246, 255, 0.92);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+  font: inherit;
+  cursor: pointer;
+
+  transition:
+    color .22s ease,
+    transform .18s ease,
+    background .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
+}
+
+.saju-floating-cycle-button__text {
+  display: block;
+  text-align: center;
+  white-space: normal;
+  font-size: 14px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.saju-floating-cycle-divider {
+  width: 1px;
+  height: 8px;
+  margin: -1px auto;
+  background: linear-gradient(180deg, transparent, var(--cycle-line), transparent);
+}
+
+.saju-floating-cycle-nav .is-active {
+  color: #ffffff;
+  border-color: rgba(152, 215, 255, 0.44);
+  background: linear-gradient(180deg, rgba(92, 176, 255, 0.28), rgba(42, 118, 255, 0.42));
+  box-shadow:
+    0 10px 22px rgba(52, 135, 255, 0.28),
+    inset 0 0 0 1px rgba(140, 208, 255, 0.42),
+    inset 0 1px 0 rgba(255,255,255,0.16);
+}
+
+@media (hover: hover) {
+  .saju-floating-cycle-nav:hover {
+    transform: translateY(-2px);
+    border-color: rgba(114, 176, 255, 0.42);
+    box-shadow:
+      0 16px 38px rgba(0, 0, 0, 0.56),
+      0 0 0 1px rgba(78, 154, 255, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  }
+
+  .saju-floating-cycle-button:hover {
+    color: #ffffff;
+    background: linear-gradient(180deg, rgba(77, 163, 255, 0.22), rgba(40, 111, 255, 0.30));
+    box-shadow:
+      0 10px 20px rgba(34, 103, 255, 0.24),
+      inset 0 0 0 1px rgba(129, 196, 255, 0.34),
+      inset 0 1px 0 rgba(255,255,255,0.18);
+    border-color: rgba(135, 201, 255, 0.46);
+    transform: translateY(-1px);
+  }
+
+  .saju-floating-cycle-nav:hover .saju-floating-cycle-label {
+    border-color: rgba(135, 201, 255, 0.26);
+  }
+}
+
+.saju-floating-cycle-nav button:focus-visible {
+  outline: 2px solid #74beff;
+  outline-offset: 2px;
+}
+
+@keyframes saju-floating-drift-c {
+  0%, 100% { translate: 0 -1px; rotate: -0.10deg; }
+  32% { translate: 4px -7px; rotate: 0.16deg; }
+  68% { translate: -3px -11px; rotate: -0.14deg; }
+}
+
+@media (max-width: 700px) {
+  #manse,
+  #sajuSummarySection,
+  #resultSection,
+  #relationsSection,
+  #elementsSection,
+  #strengthSection,
+  #sinsalSection,
+  #fortuneCycleSection,
+  #annualFortuneSection,
+  #monthlyFortuneSection,
+  #today {
+    padding-bottom: 214px !important;
+  }
+
+  #sajuFloatingCycleNav {
+    position: absolute !important;
+
+    /* 모바일에서는 원국 본문을 덜 가리도록 오른쪽 가장자리 고정 */
+    left: auto !important;
+    right: max(6px, env(safe-area-inset-right)) !important;
+    top: 52% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+
+    width: 72px;
+    min-height: 274px;
+    padding: 9px 7px;
+    gap: 5px;
+    border-radius: 28px;
+  }
+
+  .saju-floating-cycle-label {
+    width: 42px;
+    height: 42px;
+  }
+
+  .saju-floating-cycle-label svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .saju-floating-cycle-nav button {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    min-height: 48px;
+  }
+
+  .saju-floating-cycle-button__text {
+    font-size: 10px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .saju-floating-cycle-divider {
+    height: 7px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .saju-floating-cycle-nav {
+    animation: none !important;
+    transition: none;
+    translate: none;
+    rotate: none;
+  }
+}

@@ -1,0 +1,1393 @@
+/* =========================================
+   세운 독립 페이지
+========================================= */
+
+#annualFortuneSection {
+  display: block;
+
+  width: 100%;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin: 0 !important;
+
+  padding:
+    112px
+    32px
+    52px !important;
+
+  box-sizing: border-box;
+
+  scroll-margin-top: 0 !important;
+}
+
+
+.annual-fortune-section {
+  position: relative;
+
+  clear: both;
+}
+
+
+.annual-fortune-inner {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin:
+    0
+    auto;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 28px;
+
+  background:
+    rgba(29, 29, 35, 0.76);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  box-shadow:
+    0 22px 70px
+    rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================
+   제목
+========================================= */
+
+.annual-title-row {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 24px;
+}
+
+
+.annual-eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.40);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.17em;
+}
+
+
+.annual-title-row h2 {
+  margin:
+    0
+    0
+    9px;
+
+  color: #ffffff;
+
+  font-size: 42px;
+
+  letter-spacing:
+    -0.04em;
+}
+
+
+.annual-title-row p {
+  max-width: 840px;
+
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.74);
+
+  font-size: 15px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================
+   상단 요약
+========================================= */
+
+.annual-summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 12px;
+
+  margin-bottom: 14px;
+}
+
+
+.annual-summary-grid article {
+  min-height: 130px;
+
+  padding:
+    18px
+    20px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+
+.annual-summary-grid span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.54);
+
+  font-size: 10px;
+}
+
+
+.annual-summary-grid strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #ffffff;
+
+  font-size: 19px;
+}
+
+
+.annual-summary-grid p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.74);
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   안내
+========================================= */
+
+.annual-guide {
+  margin-bottom: 18px;
+
+  padding:
+    16px
+    18px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.065);
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+}
+
+
+.annual-guide strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+}
+
+
+.annual-guide p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  font-size: 12px;
+
+  line-height: 1.72;
+}
+
+
+.annual-guide b {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   연도 카드
+========================================= */
+
+.annual-card-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      5,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 11px;
+}
+
+
+.annual-fortune-card {
+  position: relative;
+
+  min-height: 410px;
+
+  padding: 17px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.065);
+
+  border-radius: 17px;
+
+  outline: 0;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+
+  color: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+
+.annual-fortune-card:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 255, 255, 0.16);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+
+.annual-fortune-card.is-selected {
+  border-color:
+    rgba(146, 166, 255, 0.42);
+
+  background:
+    rgba(120, 145, 255, 0.055);
+
+  box-shadow:
+    0 0 0 1px
+    rgba(146, 166, 255, 0.06);
+}
+
+
+.annual-fortune-card.is-current {
+  border-color:
+    rgba(220, 179, 92, 0.40);
+}
+
+
+.annual-fortune-card.is-current::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 6px;
+
+  pointer-events: none;
+
+  border:
+    1px dashed
+    rgba(220, 179, 92, 0.16);
+
+  border-radius: 13px;
+}
+
+
+/* =========================================
+   연도
+========================================= */
+
+.annual-card-head {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  min-height: 30px;
+
+  margin-bottom: 10px;
+}
+
+
+.annual-card-head > strong {
+  color: #ffffff;
+
+  font-size: 22px;
+}
+
+
+.annual-card-head em {
+  padding:
+    4px
+    7px;
+
+  border:
+    1px solid
+    rgba(224, 182, 91, 0.22);
+
+  border-radius: 999px;
+
+  background:
+    rgba(224, 182, 91, 0.08);
+
+  color:
+    rgba(247, 211, 135, 0.94);
+
+  font-size: 9px;
+
+  font-style: normal;
+
+  font-weight: 800;
+}
+
+
+/* =========================================
+   십성
+========================================= */
+
+.annual-card-ten-god {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 31px;
+
+  padding:
+    6px
+    8px;
+
+  box-sizing: border-box;
+
+  border-radius: 9px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.annual-card-ten-god-top {
+  margin-bottom: 8px;
+}
+
+
+.annual-card-ten-god-bottom {
+  margin-top: 8px;
+}
+
+
+/* =========================================
+   천간 / 지지
+========================================= */
+
+.annual-card-pillar-stack {
+  display: grid;
+
+  gap: 8px;
+}
+
+
+.annual-card-pillar {
+  --element-rgb:
+    210, 214, 220;
+
+  min-height: 76px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  padding:
+    10px
+    12px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(
+      var(--element-rgb),
+      0.25
+    );
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+
+      rgba(
+        var(--element-rgb),
+        0.16
+      ),
+
+      rgba(
+        var(--element-rgb),
+        0.055
+      )
+    );
+}
+
+
+/* 木 */
+.annual-card-pillar.is-wood {
+  --element-rgb:
+    86, 190, 124;
+}
+
+
+/* 火 */
+.annual-card-pillar.is-fire {
+  --element-rgb:
+    229, 101, 88;
+}
+
+
+/* 土 */
+.annual-card-pillar.is-earth {
+  --element-rgb:
+    217, 166, 73;
+}
+
+
+/* 金 */
+.annual-card-pillar.is-metal {
+  --element-rgb:
+    205, 212, 222;
+}
+
+
+/* 水 */
+.annual-card-pillar.is-water {
+  --element-rgb:
+    78, 122, 214;
+}
+
+
+.annual-card-pillar strong {
+  color:
+    rgb(
+      var(--element-rgb)
+    );
+
+  font-size: 40px;
+
+  line-height: 1;
+}
+
+
+.annual-card-pillar span {
+  color:
+    rgba(255, 255, 255, 0.94);
+
+  font-size: 14px;
+
+  font-weight: 750;
+}
+
+
+/* =========================================
+   12운성 / 대운
+========================================= */
+
+.annual-card-stage {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 31px;
+
+  margin-top: 6px;
+
+  padding:
+    6px
+    8px;
+
+  border-radius: 9px;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+
+  color:
+    rgba(255, 255, 255, 0.66);
+
+  font-size: 10px;
+}
+
+
+.annual-card-daeun {
+  display: block;
+
+  margin-top: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 9px;
+}
+
+
+/* =========================================
+   도움 / 부담
+========================================= */
+
+.annual-card-balance {
+  display: inline-flex;
+
+  margin-top: 10px;
+
+  padding:
+    5px
+    8px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  background:
+    rgba(255, 255, 255, 0.03);
+
+  font-size: 10px;
+
+  font-weight: 750;
+}
+
+
+.annual-card-balance.is-good-strong,
+.annual-detail-status.is-good-strong {
+  color: #b9f0cf;
+
+  border-color:
+    rgba(86, 190, 124, 0.24);
+
+  background:
+    rgba(86, 190, 124, 0.08);
+}
+
+
+.annual-card-balance.is-good,
+.annual-detail-status.is-good {
+  color: #d1dfff;
+
+  border-color:
+    rgba(95, 140, 230, 0.22);
+
+  background:
+    rgba(95, 140, 230, 0.08);
+}
+
+
+.annual-card-balance.is-bad-strong,
+.annual-detail-status.is-bad-strong {
+  color: #ffc0ba;
+
+  border-color:
+    rgba(229, 101, 88, 0.24);
+
+  background:
+    rgba(229, 101, 88, 0.08);
+}
+
+
+.annual-card-balance.is-bad,
+.annual-detail-status.is-bad {
+  color: #f4d499;
+
+  border-color:
+    rgba(217, 166, 73, 0.24);
+
+  background:
+    rgba(217, 166, 73, 0.08);
+}
+
+
+.annual-card-balance.is-mixed,
+.annual-detail-status.is-mixed {
+  color:
+    rgba(255, 255, 255, 0.80);
+
+  border-color:
+    rgba(255, 255, 255, 0.09);
+
+  background:
+    rgba(255, 255, 255, 0.03);
+}
+
+
+/* =========================================
+   상세
+========================================= */
+
+.annual-detail {
+  margin-top: 20px;
+
+  padding: 24px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+
+.annual-detail-head {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 18px;
+}
+
+
+.annual-detail-head
+> div:first-child
+> span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.54);
+
+  font-size: 10px;
+}
+
+
+.annual-detail-head h3 {
+  display: flex;
+
+  align-items: baseline;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin:
+    0
+    0
+    6px;
+
+  color: #ffffff;
+
+  font-size: 27px;
+}
+
+
+.annual-detail-head h3 small {
+  color:
+    rgba(255, 255, 255, 0.70);
+
+  font-size: 13px;
+}
+
+
+.annual-detail-head p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.66);
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+.annual-detail-status {
+  flex:
+    0 0 auto;
+
+  padding:
+    8px
+    11px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 11px;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  background:
+    rgba(255, 255, 255, 0.03);
+
+  font-size: 11px;
+
+  font-weight: 750;
+}
+
+
+/* =========================================
+   이 해의 핵심
+========================================= */
+
+.annual-detail-core {
+  margin-bottom: 14px;
+
+  padding:
+    16px
+    18px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.022);
+}
+
+
+.annual-detail-core > span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-size: 10px;
+}
+
+
+.annual-detail-core strong {
+  display: block;
+
+  color:
+    rgba(255, 255, 255, 0.96);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+.annual-detail-core small {
+  display: block;
+
+  margin-top: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.66);
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   ★ 원국 + 대운 + 세운 종합
+========================================= */
+
+.annual-strongest-summary {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 14px;
+
+  padding:
+    17px
+    19px;
+
+  border:
+    1px solid
+    rgba(236, 190, 87, 0.30);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(236, 190, 87, 0.085),
+      rgba(236, 190, 87, 0.025)
+    );
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 235, 184, 0.05);
+}
+
+
+.annual-strongest-summary > div {
+  flex:
+    0 0 auto;
+}
+
+
+.annual-strongest-summary span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color:
+    rgba(255, 225, 156, 0.68);
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+.annual-strongest-summary strong {
+  display: block;
+
+  color:
+    #f5d78d;
+
+  font-size: 19px;
+
+  font-weight: 850;
+}
+
+
+.annual-strongest-summary p {
+  max-width: 720px;
+
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   상세 영역
+========================================= */
+
+.annual-detail-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 10px;
+}
+
+
+.annual-domain-card {
+  position: relative;
+
+  min-height: 150px;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.055);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.015);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.annual-domain-title {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-bottom: 7px;
+}
+
+
+.annual-domain-title > span {
+  display: block;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.annual-domain-card p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.88);
+
+  font-size: 12px;
+
+  line-height: 1.72;
+}
+
+
+/* =========================================
+   ★ 가장 강한 운 강조
+========================================= */
+
+.annual-domain-card.is-strongest {
+  border-color:
+    rgba(239, 194, 92, 0.56);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(239, 194, 92, 0.105),
+      rgba(255, 255, 255, 0.022)
+    );
+
+  box-shadow:
+    0 0 0 1px
+    rgba(239, 194, 92, 0.07),
+
+    0 14px 34px
+    rgba(0, 0, 0, 0.20),
+
+    inset 0 1px 0
+    rgba(255, 235, 181, 0.06);
+}
+
+
+.annual-domain-card.is-strongest::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  pointer-events: none;
+
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(255, 215, 120, 0.10),
+      transparent 42%
+    );
+}
+
+
+.annual-domain-card.is-strongest
+.annual-domain-title,
+.annual-domain-card.is-strongest p,
+.annual-domain-card.is-strongest small {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+.annual-domain-card.is-strongest
+.annual-domain-title > span {
+  color:
+    #ffe1a0;
+
+  font-size: 12px;
+}
+
+
+.annual-domain-peak {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding:
+    4px
+    7px;
+
+  border:
+    1px solid
+    rgba(239, 194, 92, 0.30);
+
+  border-radius: 999px;
+
+  background:
+    rgba(239, 194, 92, 0.10);
+
+  color:
+    #f6d98d;
+
+  font-size: 8px;
+
+  font-style: normal;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+.annual-domain-reason {
+  display: block;
+
+  margin-top: 10px;
+
+  padding-top: 9px;
+
+  border-top:
+    1px solid
+    rgba(239, 194, 92, 0.12);
+
+  color:
+    rgba(255, 229, 169, 0.72);
+
+  font-size: 9px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   하단 설명
+========================================= */
+
+.annual-note {
+  margin:
+    16px
+    2px
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.43);
+
+  font-size: 10px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   태블릿
+========================================= */
+
+@media (
+  max-width: 1100px
+) {
+
+  #annualFortuneSection {
+    padding:
+      104px
+      24px
+      40px !important;
+  }
+
+
+  .annual-fortune-inner {
+    padding:
+      28px;
+  }
+
+
+  .annual-summary-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+  }
+
+
+  .annual-card-grid {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(
+          0,
+          1fr
+        )
+      );
+  }
+
+
+  .annual-detail-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+  }
+
+
+  .annual-strongest-summary {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap:
+      10px;
+  }
+
+}
+
+
+/* =========================================
+   모바일
+========================================= */
+
+@media (
+  max-width: 700px
+) {
+
+  #annualFortuneSection {
+    padding:
+      88px
+      12px
+      24px !important;
+  }
+
+
+  .annual-fortune-inner {
+    padding:
+      22px
+      16px;
+
+    border-radius: 20px;
+  }
+
+
+  .annual-title-row h2 {
+    font-size:
+      34px;
+  }
+
+
+  .annual-summary-grid,
+  .annual-card-grid,
+  .annual-detail-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .annual-fortune-card {
+    min-height:
+      auto;
+  }
+
+
+  .annual-detail-head {
+    flex-direction:
+      column;
+  }
+
+
+  .annual-strongest-summary strong {
+    font-size:
+      17px;
+  }
+
+}
+
+.annual-domain-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.annual-domain-rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.annual-domain-rank-badge.rank-1 {
+  border-color: rgba(239, 194, 92, 0.45);
+  background: rgba(239, 194, 92, 0.16);
+  color: #ffe1a0;
+}
+
+.annual-domain-rank-badge.rank-2 {
+  border-color: rgba(197, 207, 230, 0.42);
+  background: rgba(197, 207, 230, 0.12);
+  color: #e5ecff;
+}
+
+.annual-domain-rank-badge.rank-3 {
+  border-color: rgba(201, 141, 92, 0.42);
+  background: rgba(201, 141, 92, 0.12);
+  color: #ffd0ad;
+}
+
+.annual-domain-card.is-rank-2 {
+  border-color: rgba(197, 207, 230, 0.32);
+  background: linear-gradient(145deg, rgba(197, 207, 230, 0.08), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 0 0 1px rgba(197, 207, 230, 0.05), 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.annual-domain-card.is-rank-2::before,
+.annual-domain-card.is-rank-3::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  border-radius: 14px;
+}
+
+.annual-domain-card.is-rank-2::before {
+  background: radial-gradient(circle at 20% 0%, rgba(222, 231, 255, 0.10), transparent 42%);
+}
+
+.annual-domain-card.is-rank-2 .annual-domain-title,
+.annual-domain-card.is-rank-2 p,
+.annual-domain-card.is-rank-2 small,
+.annual-domain-card.is-rank-3 .annual-domain-title,
+.annual-domain-card.is-rank-3 p,
+.annual-domain-card.is-rank-3 small {
+  position: relative;
+  z-index: 1;
+}
+
+.annual-domain-card.is-rank-2 .annual-domain-title > span {
+  color: #e5ecff;
+}
+
+.annual-domain-card.is-rank-3 {
+  border-color: rgba(201, 141, 92, 0.30);
+  background: linear-gradient(145deg, rgba(201, 141, 92, 0.08), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 0 0 1px rgba(201, 141, 92, 0.05), 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.annual-domain-card.is-rank-3::before {
+  background: radial-gradient(circle at 20% 0%, rgba(255, 204, 168, 0.09), transparent 42%);
+}
+
+.annual-domain-card.is-rank-3 .annual-domain-title > span {
+  color: #ffd0ad;
+}

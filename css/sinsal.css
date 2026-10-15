@@ -1,0 +1,338 @@
+/* ===============================
+   신살 / 길성 페이지
+================================ */
+
+.sinsal-section {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.sinsal-section[hidden] {
+  display: none;
+}
+
+
+.sinsal-inner {
+  width: 100%;
+
+  min-height:
+    calc(100vh - 80px);
+
+  padding:
+    44px
+    40px;
+}
+
+
+/* ===============================
+   제목
+================================ */
+
+.sinsal-title {
+  margin-bottom: 32px;
+}
+
+
+.sinsal-title h2 {
+  margin:
+    0
+    0
+    10px;
+
+  font-size: 44px;
+
+  font-weight: 800;
+}
+
+
+.sinsal-title p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+
+/* ===============================
+   시주 / 일주 / 월주 / 년주
+================================ */
+
+.sinsal-pillar-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+
+.sinsal-pillar {
+  min-width: 0;
+
+  padding:
+    16px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+/* ===============================
+   각 기둥 제목
+================================ */
+
+.sinsal-pillar-title {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+
+  padding:
+    0
+    2px;
+}
+
+
+.sinsal-pillar-title span {
+  font-size: 17px;
+
+  font-weight: 800;
+}
+
+
+.sinsal-pillar-title small {
+  font-size: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+}
+
+
+/* ===============================
+   카드 목록
+================================ */
+
+.sinsal-pillar-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.sinsal-card {
+  min-height: 120px;
+
+  padding:
+    16px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.sinsal-card:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+
+/* ===============================
+   길성
+================================ */
+
+.sinsal-card.good-star {
+  border-color:
+    rgba(218, 190, 112, 0.24);
+}
+
+
+.sinsal-card.good-star:hover {
+  border-color:
+    rgba(218, 190, 112, 0.48);
+
+  box-shadow:
+    0 0 22px
+    rgba(218, 190, 112, 0.08);
+}
+
+
+/* ===============================
+   신살
+================================ */
+
+.sinsal-card.special-star {
+  border-color:
+    rgba(170, 145, 215, 0.22);
+}
+
+
+.sinsal-card.special-star:hover {
+  border-color:
+    rgba(170, 145, 215, 0.46);
+
+  box-shadow:
+    0 0 22px
+    rgba(170, 145, 215, 0.08);
+}
+
+
+/* ===============================
+   카드 내부
+================================ */
+
+.sinsal-card-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+
+.sinsal-type {
+  padding:
+    5px
+    8px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+}
+
+
+.good-star .sinsal-type {
+  color:
+    rgb(235, 210, 139);
+
+  background:
+    rgba(218, 190, 112, 0.09);
+}
+
+
+.special-star .sinsal-type {
+  color:
+    rgb(194, 171, 235);
+
+  background:
+    rgba(170, 145, 215, 0.09);
+}
+
+
+.sinsal-basis {
+  font-size: 11px;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+}
+
+
+.sinsal-name {
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-size: 20px;
+}
+
+
+.sinsal-detail {
+  font-size: 14px;
+
+  color:
+    rgba(255, 255, 255, 0.52);
+}
+
+
+/* ===============================
+   없음
+================================ */
+
+.sinsal-empty {
+  padding:
+    22px
+    12px;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+
+/* ===============================
+   태블릿
+================================ */
+
+@media (max-width: 1000px) {
+
+  .sinsal-pillar-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ===============================
+   모바일
+================================ */
+
+@media (max-width: 600px) {
+
+  .sinsal-inner {
+    padding:
+      30px
+      18px;
+  }
+
+
+  .sinsal-title h2 {
+    font-size: 34px;
+  }
+
+
+  .sinsal-pillar-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

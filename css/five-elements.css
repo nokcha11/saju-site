@@ -1,0 +1,580 @@
+/* =========================================
+   오행 페이지
+========================================= */
+
+.elements-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.elements-section[hidden] {
+  display: none;
+}
+
+
+.elements-inner {
+  width: 100%;
+
+  min-height:
+    calc(100vh - 80px);
+
+  padding:
+    38px 40px;
+}
+
+
+/* =========================================
+   제목
+========================================= */
+
+.elements-title {
+  margin-bottom: 22px;
+}
+
+
+.elements-title h2 {
+  margin:
+    0 0 8px;
+
+  font-size: 44px;
+  font-weight: 800;
+}
+
+
+.elements-title p {
+  margin: 0;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+}
+
+
+/* =========================================
+   메인 오행
+========================================= */
+
+.main-element-summary {
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  margin-bottom: 22px;
+
+  padding:
+    18px 24px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+
+.summary-label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 11px;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+}
+
+
+.main-element-symbol {
+  display: block;
+
+  font-size: 50px;
+
+  line-height: 1;
+}
+
+
+.main-element-copy h3 {
+  margin:
+    0 0 5px;
+
+  font-size: 20px;
+}
+
+
+.main-element-copy p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color:
+    rgba(255, 255, 255, 0.52);
+}
+
+
+/* =========================================
+   오행 5개
+========================================= */
+
+.five-element-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      5,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+}
+
+
+.five-element-card {
+  min-width: 0;
+
+  padding: 18px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        var(--element-rgb),
+        0.15
+      ),
+      rgba(
+        var(--element-rgb),
+        0.04
+      )
+    );
+
+  border:
+    1px solid
+    rgba(
+      var(--element-rgb),
+      0.28
+    );
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.five-element-card:hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(
+      var(--element-rgb),
+      0.55
+    );
+
+  box-shadow:
+    0 12px 30px
+      rgba(0, 0, 0, 0.26),
+
+    0 0 24px
+      rgba(
+        var(--element-rgb),
+        0.12
+      );
+}
+
+
+.five-element-card.main-element {
+  box-shadow:
+    inset 0 0 0 1px
+      rgba(
+        var(--element-rgb),
+        0.18
+      ),
+
+    0 0 26px
+      rgba(
+        var(--element-rgb),
+        0.10
+      );
+}
+
+
+/* =========================================
+   카드 제목
+========================================= */
+
+.five-element-card-top {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+
+.element-title-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+
+.five-element-hanja {
+  font-size: 31px;
+
+  font-weight: 800;
+
+  color:
+    rgb(
+      var(--element-rgb)
+    );
+}
+
+
+.element-title {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 16px;
+
+  white-space: nowrap;
+}
+
+
+.element-description {
+  display: block;
+
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.40);
+}
+
+
+.main-element-badge {
+  padding:
+    5px 8px;
+
+  border-radius: 999px;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  background:
+    rgba(
+      var(--element-rgb),
+      0.18
+    );
+}
+
+
+/* =========================================
+   십성 %
+========================================= */
+
+.element-ten-god-ratios {
+  margin-bottom: 18px;
+
+  padding:
+    13px 12px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(0, 0, 0, 0.13);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+}
+
+
+.element-ten-god-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+
+.element-ten-god-row
++ .element-ten-god-row {
+  margin-top: 8px;
+}
+
+
+.element-ten-god-row span {
+  font-size: 13px;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+}
+
+
+.element-ten-god-row strong {
+  font-size: 15px;
+
+  font-variant-numeric:
+    tabular-nums;
+
+  color:
+    rgba(255, 255, 255, 0.90);
+}
+
+
+/* =========================================
+   오행 합계
+========================================= */
+
+.five-element-total {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 9px;
+}
+
+
+.five-element-total span {
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+.five-element-total strong {
+  font-size: 19px;
+}
+
+
+/* =========================================
+   비율 바
+========================================= */
+
+.five-element-bar {
+  height: 6px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.five-element-bar-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    rgb(
+      var(--element-rgb)
+    );
+
+  box-shadow:
+    0 0 12px
+      rgba(
+        var(--element-rgb),
+        0.35
+      );
+}
+
+
+.five-element-count {
+  margin-top: 7px;
+
+  text-align: right;
+
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.30);
+}
+
+
+/* =========================================
+   하단 요약
+========================================= */
+
+.element-analysis-summary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+
+  margin-top: 16px;
+}
+
+
+.element-analysis-summary > div {
+  padding:
+    14px 18px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.03);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.element-analysis-summary span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.40);
+}
+
+
+.element-analysis-summary strong {
+  font-size: 13px;
+}
+
+
+/* =========================================
+   안내
+========================================= */
+
+.elements-note {
+  margin:
+    14px 2px 0;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.32);
+}
+
+
+/* =========================================
+   메인 오행 색
+========================================= */
+
+.element-text-wood {
+  color:
+    rgb(var(--wood-rgb));
+}
+
+
+.element-text-fire {
+  color:
+    rgb(var(--fire-rgb));
+}
+
+
+.element-text-earth {
+  color:
+    rgb(var(--earth-rgb));
+}
+
+
+.element-text-metal {
+  color:
+    rgb(var(--metal-rgb));
+}
+
+
+.element-text-water {
+  color:
+    rgb(var(--water-rgb));
+}
+
+
+/* =========================================
+   태블릿
+========================================= */
+
+@media (
+  max-width: 1000px
+) {
+
+  .five-element-grid {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+/* =========================================
+   모바일
+========================================= */
+
+@media (
+  max-width: 600px
+) {
+
+  .elements-inner {
+    padding:
+      30px 18px;
+  }
+
+
+  .elements-title h2 {
+    font-size: 34px;
+  }
+
+
+  .main-element-summary {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .five-element-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .element-analysis-summary {
+    grid-template-columns:
+      1fr;
+  }
+
+}

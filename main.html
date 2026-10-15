@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    사주 만세력
+  </title>
+
+
+  <!-- 기본 -->
+  <link
+    rel="stylesheet"
+    href="./css/style.css"
+  >
+
+
+  <!-- 상단 메뉴 -->
+  <link
+    rel="stylesheet"
+    href="./css/site-header.css"
+  >
+
+
+  <!-- 날짜 조절 -->
+  <link
+    rel="stylesheet"
+    href="./css/date-controls.css"
+  >
+
+
+  <!-- 신강 · 신약 -->
+  <link
+    rel="stylesheet"
+    href="./css/strength.css"
+  >
+
+
+  <!--
+    date-controls.css가 아직 없거나
+    이전 스타일이 없어도 바로 보이도록
+    최소 스타일을 여기에도 넣어둠
+  -->
+  <style>
+
+    .birth-date-controls {
+      display: grid;
+
+      grid-template-columns:
+        auto
+        auto
+        minmax(180px, 1fr)
+        auto
+        auto;
+
+      gap: 8px;
+
+      align-items: center;
+
+      width: 100%;
+    }
+
+
+    .birth-date-shift {
+      height: 42px;
+
+      padding:
+        0
+        11px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+      border-radius: 12px;
+
+      color:
+        rgba(255, 255, 255, 0.82);
+
+      background:
+        rgba(255, 255, 255, 0.055);
+
+      cursor: pointer;
+
+      white-space: nowrap;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .birth-date-shift:hover {
+      background:
+        rgba(255, 255, 255, 0.10);
+
+      border-color:
+        rgba(255, 255, 255, 0.18);
+
+      transform:
+        translateY(-1px);
+    }
+
+
+    .birth-date-controls input[type="date"] {
+      min-width: 0;
+    }
+
+
+    @media (max-width: 700px) {
+
+      .birth-date-controls {
+        grid-template-columns:
+          repeat(
+            4,
+            1fr
+          );
+      }
+
+
+      .birth-date-controls input[type="date"] {
+        grid-column:
+          1 / -1;
+
+        grid-row:
+          1;
+      }
+
+
+      .birth-date-shift {
+        padding:
+          0
+          6px;
+
+        font-size: 11px;
+      }
+
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="./css/daily-fortune.css">
+  <link rel="stylesheet" href="./css/floating-menus.css">
+  <link rel="stylesheet" href="./css/final-ui-tweaks.css">
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       상단 고정 메뉴
+  ========================================== -->
+
+  <header
+    id="siteHeader"
+    class="site-header"
+  >
+
+
+    <a
+      href="#manse"
+      class="site-brand"
+    >
+
+      <span class="site-brand-symbol">
+        命
+      </span>
+
+      <strong>
+        SAJU
+      </strong>
+
+    </a>
+
+
+    <nav
+      class="site-nav"
+      aria-label="사주 페이지 메뉴"
+    >
+
+      <a href="#manse">
+        입력
+      </a>
+
+      <a href="#sajuSummarySection">
+        요약
+      </a>
+
+      <a href="#resultSection">
+        원국
+      </a>
+
+      <a href="#relationsSection">
+        관계
+      </a>
+
+      <a href="#elementsSection">
+        오행
+      </a>
+
+      <a href="#strengthSection">
+        신강·신약
+      </a>
+
+      <a href="#sinsalSection">
+        신살·길성
+      </a>
+
+      <a href="#fortuneCycleSection">대운</a>
+      <a href="#annualFortuneSection">세운</a>
+      <a href="#monthlyFortuneSection">월운</a>
+
+      <a href="#today">
+        오늘의 운세
+      </a>
+
+    </nav>
+
+
+  </header>
+
+
+
+  <!-- =========================================
+       배경 파티클
+  ========================================== -->
+
+  <canvas id="particleCanvas"></canvas>
+
+
+
+  <div class="app">
+
+
+    <!-- =========================================
+         1페이지 : 입력
+    ========================================== -->
+
+    <section
+      id="manse"
+      class="page-section manse-section"
+    >
+
+
+      <main class="main">
+
+
+        <!-- =====================================
+             왼쪽 소개
+        ====================================== -->
+
+        <section class="intro-panel glass">
+
+
+          <div class="intro-badge">
+
+            PERSONAL SAJU ANALYSIS
+
+          </div>
+
+
+          <div class="intro-content">
+
+            <h1>
+
+              나의 사주를 읽고,<br>
+
+              오늘의 흐름을 확인하세요
+
+            </h1>
+
+
+            <p>
+
+              생년월일과 태어난 시간을 기준으로<br>
+
+              사주 원국과 운의 흐름을 분석합니다.
+
+            </p>
+
+          </div>
+
+
+          <div class="intro-tags">
+
+            <span>
+              사주 원국
+            </span>
+
+            <span>
+              대운 · 세운
+            </span>
+
+            <span>
+              오늘의 운세
+            </span>
+
+          </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             오른쪽 입력
+        ====================================== -->
+
+        <section class="form-panel glass">
+
+
+          <div class="form-title">
+
+            <h2>
+              나의 사주 보기
+            </h2>
+
+            <p>
+              출생 정보를 입력해주세요.
+            </p>
+
+          </div>
+
+
+
+          <form id="sajuForm">
+
+
+            <!-- =================================
+                 성별
+            ================================== -->
+
+            <div class="form-group">
+
+              <label>
+                성별
+              </label>
+
+
+              <div class="radio-group">
+
+
+                <label>
+
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    checked
+                  >
+
+                  남성
+
+                </label>
+
+
+                <label>
+
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="female"
+                  >
+
+                  여성
+
+                </label>
+
+
+              </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 양력 / 음력
+            ================================== -->
+
+            <div class="form-group">
+
+              <label>
+                달력
+              </label>
+
+
+              <div class="radio-group">
+
+
+                <label>
+
+                  <input
+                    type="radio"
+                    name="calendar"
+                    value="solar"
+                    checked
+                  >
+
+                  양력
+
+                </label>
+
+
+                <label>
+
+                  <input
+                    type="radio"
+                    name="calendar"
+                    value="lunar"
+                  >
+
+                  음력
+
+                </label>
+
+
+                <label>
+
+                  <input
+                    type="checkbox"
+                    id="leapMonth"
+                  >
+
+                  윤달
+
+                </label>
+
+
+              </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 생년월일
+
+                 ★ 연도 이동 복구
+            ================================== -->
+
+            <div class="form-group">
+
+              <label for="birthDate">
+
+                생년월일
+
+              </label>
+
+
+              <div class="birth-date-controls">
+
+
+                <!-- 10년 전 -->
+
+                <button
+                  type="button"
+                  class="birth-date-shift"
+                  data-year-shift="-10"
+                  aria-label="10년 전"
+                >
+
+                  ‹ 10년
+
+                </button>
+
+
+
+                <!-- 1년 전 -->
+
+                <button
+                  type="button"
+                  class="birth-date-shift"
+                  data-year-shift="-1"
+                  aria-label="1년 전"
+                >
+
+                  ‹ 1년
+
+                </button>
+
+
+
+                <!-- 날짜 -->
+
+                <input
+                  type="text"
+                  id="birthDate"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  placeholder="연도-월-일"
+                  required
+                >
+
+
+
+                <!-- 1년 후 -->
+
+                <button
+                  type="button"
+                  class="birth-date-shift"
+                  data-year-shift="1"
+                  aria-label="1년 후"
+                >
+
+                  1년 ›
+
+                </button>
+
+
+
+                <!-- 10년 후 -->
+
+                <button
+                  type="button"
+                  class="birth-date-shift"
+                  data-year-shift="10"
+                  aria-label="10년 후"
+                >
+
+                  10년 ›
+
+                </button>
+
+
+              </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 태어난 시간
+            ================================== -->
+
+            <div class="form-group">
+
+              <label for="birthTime">
+
+                태어난 시간
+
+              </label>
+
+
+              <input
+                type="text"
+                id="birthTime"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="--:--"
+              >
+
+
+              <label class="check-label">
+
+                <input
+                  type="checkbox"
+                  id="unknownTime"
+                >
+
+                태어난 시간을 모릅니다
+
+              </label>
+
+            </div>
+
+
+
+            <!-- =================================
+                 태어난 지역
+            ================================== -->
+
+            <div class="form-group">
+
+              <label for="birthPlace">
+
+                태어난 지역
+
+              </label>
+
+
+              <select id="birthPlace">
+
+
+                <option value="">
+
+                  지역을 선택해주세요
+
+                </option>
+
+
+                <option value="seoul">
+
+                  서울특별시
+
+                </option>
+
+
+                <option value="busan">
+
+                  부산광역시
+
+                </option>
+
+
+                <option value="incheon">
+
+                  인천광역시
+
+                </option>
+
+
+                <option value="daegu">
+
+                  대구광역시
+
+                </option>
+
+
+                <option value="daejeon">
+
+                  대전광역시
+
+                </option>
+
+
+                <option value="gwangju">
+
+                  광주광역시
+
+                </option>
+
+
+                <option value="ulsan">
+
+                  울산광역시
+
+                </option>
+
+
+                <option value="sejong">
+
+                  세종특별자치시
+
+                </option>
+
+
+                <option value="jeju">
+
+                  제주특별자치도
+
+                </option>
+
+
+              </select>
+
+            </div>
+
+
+
+            <!-- =================================
+                 실행
+            ================================== -->
+
+            <button
+              type="submit"
+              class="submit-btn"
+            >
+
+              내 사주 보기
+
+            </button>
+
+
+          </form>
+
+
+        </section>
+
+
+      </main>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         요약
+
+         renderSajuSummary.js에서
+         sajuSummarySection 생성
+    ========================================== -->
+
+
+
+    <!-- =========================================
+         원국
+    ========================================== -->
+
+    <section
+      id="resultSection"
+      class="page-section result-section"
+      hidden
+    >
+    </section>
+
+
+
+    <!-- =========================================
+         관계
+
+         renderRelations.js에서 생성
+    ========================================== -->
+
+
+
+    <!-- =========================================
+         오행
+
+         renderFiveElements.js에서 생성
+    ========================================== -->
+
+
+
+    <!-- =========================================
+         신강 · 신약
+
+         renderStrength.js에서
+         strengthSection 생성
+    ========================================== -->
+
+
+
+    <!-- =========================================
+         신살 · 길성
+    ========================================== -->
+
+    <section
+      id="sinsalSection"
+      class="page-section sinsal-section"
+      hidden
+    >
+    </section>
+
+
+
+    <!-- =========================================
+         오늘의 운세
+    ========================================== -->
+
+    <section
+      id="today"
+      class="page-section today-section"
+    >
+
+
+      <div class="today-glass glass">
+
+
+        <div class="today-title">
+
+
+          <span class="section-label">
+
+            TODAY'S FORTUNE
+
+          </span>
+
+
+          <h2>
+
+            오늘의 운세
+
+          </h2>
+
+
+          <p>
+
+            오늘 하루의 흐름과 운세를 확인하세요.
+
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </div>
+
+
+
+  <!-- =========================================
+       기존 메인
+  ========================================== -->
+
+  <script
+    type="module"
+    src="./js/main.js"
+  ></script>
+
+
+
+  <!-- =========================================
+       생년월일 연도 조절
+
+       birthDate 값 자체를 변경하므로
+       기존 사주 계산 로직 그대로 사용 가능
+  ========================================== -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        const birthDate =
+          document.getElementById(
+            "birthDate"
+          );
+
+
+        const buttons =
+          document.querySelectorAll(
+            "[data-year-shift]"
+          );
+
+
+        /* -------------------------------------
+           윤년
+        ------------------------------------- */
+
+        function isLeapYear(
+          year
+        ) {
+
+          return (
+
+            year % 400 === 0
+
+            ||
+
+            (
+              year % 4 === 0
+              &&
+              year % 100 !== 0
+            )
+
+          );
+
+        }
+
+
+        /* -------------------------------------
+           해당 월의 마지막 날짜
+        ------------------------------------- */
+
+        function getLastDay(
+          year,
+          month
+        ) {
+
+          const table = [
+
+            31,
+
+            isLeapYear(
+              year
+            )
+              ? 29
+              : 28,
+
+            31,
+            30,
+            31,
+            30,
+            31,
+            31,
+            30,
+            31,
+            30,
+            31
+
+          ];
+
+
+          return table[
+            month - 1
+          ];
+
+        }
+
+
+        /* -------------------------------------
+           2자리
+        ------------------------------------- */
+
+        function pad2(
+          value
+        ) {
+
+          return String(
+            value
+          ).padStart(
+            2,
+            "0"
+          );
+
+        }
+
+
+        /* -------------------------------------
+           연도 이동
+        ------------------------------------- */
+
+        function shiftYear(
+          amount
+        ) {
+
+          let year;
+          let month;
+          let day;
+
+
+          if (
+            birthDate.value
+          ) {
+
+            const [
+              y,
+              m,
+              d
+            ] =
+              birthDate.value
+                .split("-")
+                .map(Number);
+
+
+            year =
+              y;
+
+            month =
+              m;
+
+            day =
+              d;
+
+          }
+
+          else {
+
+            const now =
+              new Date();
+
+
+            year =
+              now.getFullYear();
+
+            month =
+              now.getMonth() + 1;
+
+            day =
+              now.getDate();
+
+          }
+
+
+          year +=
+            amount;
+
+
+          /*
+            2월 29일에서
+            윤년이 아닌 해로 이동할 경우
+            2월 28일로 자동 보정
+          */
+
+          day =
+            Math.min(
+
+              day,
+
+              getLastDay(
+                year,
+                month
+              )
+
+            );
+
+
+          birthDate.value =
+
+            `${year}-${pad2(month)}-${pad2(day)}`;
+
+
+          /*
+            기존 폼 / 계산 코드가
+            날짜 변경을 감지할 수 있도록 전달
+          */
+
+          birthDate.dispatchEvent(
+            new Event(
+              "input",
+              {
+                bubbles: true
+              }
+            )
+          );
+
+
+          birthDate.dispatchEvent(
+            new Event(
+              "change",
+              {
+                bubbles: true
+              }
+            )
+          );
+
+        }
+
+
+        /* -------------------------------------
+           버튼 연결
+        ------------------------------------- */
+
+        buttons.forEach(
+          button => {
+
+            button.addEventListener(
+              "click",
+              () => {
+
+                const amount =
+                  Number(
+                    button.dataset.yearShift
+                  );
+
+
+                if (
+                  !Number.isFinite(
+                    amount
+                  )
+                ) {
+
+                  return;
+
+                }
+
+
+                shiftYear(
+                  amount
+                );
+
+              }
+            );
+
+          }
+        );
+
+      }
+    );
+
+  </script>
+
+
+  <!-- Two independent floating shortcuts -->
+  <script type="module" src="./js/ui/floatingMenus.js"></script>
+  <script type="module" src="./js/form/enhancedBirthPicker.js"></script>
+</body>
+
+</html>

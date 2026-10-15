@@ -1,0 +1,761 @@
+/* =========================================
+   사주 핵심 요약
+========================================= */
+
+.saju-summary-section {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.saju-summary-section[hidden] {
+  display: none;
+}
+
+
+.saju-summary-inner {
+  width: 100%;
+
+  min-height:
+    calc(100vh - 80px);
+
+  padding:
+    36px 40px;
+}
+
+
+/* =========================================
+   제목
+========================================= */
+
+.saju-summary-heading {
+  margin-bottom: 20px;
+}
+
+
+.saju-summary-heading h2 {
+  margin:
+    0 0 7px;
+
+  font-size: 42px;
+
+  font-weight: 800;
+}
+
+
+.saju-summary-heading p {
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================
+   핵심 3개 카드
+========================================= */
+
+.summary-highlight-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+
+.summary-highlight-card {
+  position: relative;
+
+  min-height: 170px;
+
+  padding:
+    20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  border-radius: 22px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.02)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 10px 28px
+    rgba(0, 0, 0, 0.14);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* 빛 반사 */
+
+.summary-highlight-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.07),
+      transparent 70%
+    );
+
+  transform:
+    translateX(-50%);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s ease;
+}
+
+
+/* Hover */
+
+.summary-highlight-card:hover {
+  transform:
+    translateY(-6px)
+    scale(1.012);
+
+  border-color:
+    rgba(255, 255, 255, 0.18);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.085),
+      rgba(255, 255, 255, 0.028)
+    );
+
+  box-shadow:
+    0 18px 40px
+    rgba(0, 0, 0, 0.28),
+
+    0 0 24px
+    rgba(255, 255, 255, 0.04);
+}
+
+
+.summary-highlight-card:hover::before {
+  opacity: 1;
+
+  transform:
+    translateX(50%);
+}
+
+
+/* 키보드 선택 */
+
+.summary-highlight-card:focus-visible {
+  outline:
+    2px solid
+    rgba(255, 255, 255, 0.45);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================
+   오행 카드
+========================================= */
+
+.summary-highlight-card[class*="element-"] {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        var(--element-rgb),
+        0.16
+      ),
+      rgba(
+        var(--element-rgb),
+        0.035
+      )
+    );
+
+  border-color:
+    rgba(
+      var(--element-rgb),
+      0.30
+    );
+}
+
+
+.summary-highlight-card[class*="element-"]:hover {
+  border-color:
+    rgba(
+      var(--element-rgb),
+      0.58
+    );
+
+  box-shadow:
+    0 18px 40px
+    rgba(0, 0, 0, 0.28),
+
+    0 0 30px
+    rgba(
+      var(--element-rgb),
+      0.15
+    );
+}
+
+
+/* =========================================
+   카드 내부
+========================================= */
+
+.summary-card-label {
+  position: absolute;
+
+  top: 16px;
+  left: 17px;
+
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+.summary-main-symbol {
+  margin-bottom: 7px;
+
+  font-size: 46px;
+
+  font-weight: 800;
+
+  color:
+    rgb(
+      var(--element-rgb)
+    );
+
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+
+.summary-animal {
+  margin-bottom: 5px;
+
+  font-size: 46px;
+
+  line-height: 1;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.summary-tendency-hanja {
+  margin-bottom: 7px;
+
+  font-size: 31px;
+
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+
+.summary-highlight-card:hover
+.summary-main-symbol,
+
+.summary-highlight-card:hover
+.summary-animal,
+
+.summary-highlight-card:hover
+.summary-tendency-hanja {
+  transform:
+    scale(1.09);
+}
+
+
+.summary-highlight-card:hover
+.summary-main-symbol {
+  text-shadow:
+    0 0 20px
+    rgba(
+      var(--element-rgb),
+      0.34
+    );
+}
+
+
+.summary-highlight-card > strong {
+  margin-bottom: 5px;
+
+  font-size: 19px;
+}
+
+
+.summary-highlight-card > small {
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+/* 자세히 보기 */
+
+.summary-more {
+  position: absolute;
+
+  bottom: 12px;
+
+  opacity: 0;
+
+  transform:
+    translateY(5px);
+
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.44);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.summary-highlight-card:hover
+.summary-more {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================
+   미니 만세력
+========================================= */
+
+.summary-chart {
+  display: grid;
+
+  grid-template-columns:
+    76px
+    minmax(0, 1fr);
+
+  gap: 10px;
+
+  padding:
+    16px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.summary-row-labels,
+.summary-pillar-column {
+  display: grid;
+
+  grid-template-rows:
+    28px
+    32px
+    80px
+    80px
+    32px
+    32px;
+
+  gap: 7px;
+}
+
+
+.summary-row-labels > div {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.56);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+}
+
+
+.summary-row-labels
+> div:first-child {
+  background: transparent;
+
+  border-color: transparent;
+}
+
+
+.summary-pillar-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 8px;
+}
+
+
+.summary-pillar-label {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+
+.summary-ten-god,
+.summary-stage {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+}
+
+
+.summary-char-box {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        var(--element-rgb),
+        0.20
+      ),
+      rgba(
+        var(--element-rgb),
+        0.06
+      )
+    );
+
+  border:
+    1px solid
+    rgba(
+      var(--element-rgb),
+      0.32
+    );
+}
+
+
+.summary-char-box strong {
+  font-size: 34px;
+
+  line-height: 1;
+
+  color:
+    rgb(
+      var(--element-rgb)
+    );
+}
+
+
+.summary-char-box span {
+  margin-top: 6px;
+
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+}
+
+
+/* =========================================
+   안내
+========================================= */
+
+.summary-note {
+  margin:
+    12px 2px 0;
+
+  font-size: 9px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.30);
+}
+
+
+/* =========================================
+   태블릿
+========================================= */
+
+@media (max-width: 900px) {
+  .summary-chart {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .summary-pillar-grid {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================
+   모바일
+   - 가로스크롤 없이 4주 한 화면 맞춤
+========================================= */
+
+@media (max-width: 600px) {
+  .saju-summary-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .saju-summary-inner {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: auto;
+    padding: 22px 10px 26px;
+    overflow-x: hidden;
+  }
+
+  .saju-summary-heading {
+    margin-bottom: 14px;
+  }
+
+  .saju-summary-heading h2 {
+    font-size: 28px;
+  }
+
+  .saju-summary-heading p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .summary-highlight-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .summary-highlight-card {
+    min-height: 132px;
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .summary-main-symbol,
+  .summary-animal {
+    font-size: 40px;
+  }
+
+  .summary-tendency-hanja {
+    font-size: 28px;
+  }
+
+  .summary-chart {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 5px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 10px 8px;
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  .summary-row-labels,
+  .summary-pillar-column {
+    grid-template-rows:
+      24px
+      30px
+      72px
+      72px
+      30px
+      30px;
+    gap: 5px;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .summary-pillar-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .summary-pillar-column {
+    min-width: 0;
+  }
+
+  .summary-row-labels > div {
+    min-width: 0;
+    padding: 0 1px;
+    font-size: 8px;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .summary-pillar-label {
+    min-width: 0;
+    font-size: 9px;
+    line-height: 1;
+  }
+
+  .summary-ten-god,
+  .summary-stage {
+    min-width: 0;
+    padding: 2px 1px;
+    border-radius: 8px;
+    font-size: 8px;
+    line-height: 1.05;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .summary-char-box {
+    min-width: 0;
+    width: 100%;
+    height: 72px;
+    padding: 3px 1px;
+    border-radius: 12px;
+  }
+
+  .summary-char-box strong {
+    font-size: clamp(27px, 8vw, 34px);
+    line-height: .95;
+  }
+
+  .summary-char-box span {
+    margin-top: 4px;
+    font-size: 7px;
+  }
+
+  .summary-note {
+    margin: 10px 4px 0;
+    font-size: 8px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 390px) {
+  .saju-summary-inner {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .summary-chart {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .summary-pillar-grid {
+    gap: 3px;
+  }
+
+  .summary-ten-god,
+  .summary-stage,
+  .summary-row-labels > div {
+    font-size: 7px;
+  }
+
+  .summary-char-box strong {
+    font-size: 26px;
+  }
+}

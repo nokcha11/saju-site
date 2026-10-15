@@ -1,0 +1,331 @@
+/* 관계도: 기존 화면과 같은 반투명 글래스 테마 */
+
+#relationsSection .relation-map-panel {
+  position: relative;
+  overflow: hidden;
+
+  margin-top: 22px;
+  padding: 18px 20px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.016)
+    );
+
+  backdrop-filter: blur(10px) saturate(125%);
+  -webkit-backdrop-filter: blur(10px) saturate(125%);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 0 0 24px rgba(255, 255, 255, 0.025),
+    0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+/* 은은한 유리 반사광 */
+
+#relationsSection .relation-map-panel::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.06),
+      transparent 38%,
+      rgba(255, 255, 255, 0.018) 72%,
+      transparent
+    );
+}
+
+#relationsSection .relation-map-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 제목 */
+
+#relationsSection .relation-map-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+#relationsSection .relation-map-heading h3 {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 17px;
+  font-weight: 750;
+}
+
+/* 연결선 범례 */
+
+#relationsSection .relation-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px;
+  font-size: 11px;
+}
+
+#relationsSection .relation-map-legend span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+#relationsSection .relation-map-legend span::before {
+  content: "";
+
+  width: 16px;
+  height: 2px;
+
+  border-radius: 2px;
+  background: currentColor;
+}
+
+#relationsSection .relation-map-legend .is-combine {
+  color: #9bdcb9;
+}
+
+#relationsSection .relation-map-legend .is-conflict {
+  color: #e4b3bc;
+}
+
+/* 관계도 영역 */
+
+#relationsSection .relation-map-scroll {
+  width: 100%;
+  max-width: 100%;
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(255, 255, 255, 0.20)
+    transparent;
+
+  border-radius: 12px;
+}
+
+#relationsSection .relation-map-svg {
+  display: block;
+
+  width: 100%;
+  min-width: 560px;
+  max-width: 800px;
+
+  height: auto;
+  margin: 0 auto;
+}
+
+/* 천간·지지 칸 공통 */
+
+#relationsSection .relation-map-svg > rect {
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+
+  filter:
+    drop-shadow(
+      0 4px 8px rgba(0, 0, 0, 0.12)
+    );
+}
+
+/* 木 — 반투명 초록 */
+
+#relationsSection .relation-map-svg > rect[fill="#43b581"] {
+  fill:
+    rgba(
+      var(--wood-rgb, 67, 181, 129),
+      0.14
+    );
+
+  stroke:
+    rgba(
+      var(--wood-rgb, 67, 181, 129),
+      0.45
+    );
+}
+
+#relationsSection .relation-map-svg > rect[fill="#43b581"] + text {
+  fill: #8ee0b5;
+}
+
+/* 火 — 반투명 빨강 */
+
+#relationsSection .relation-map-svg > rect[fill="#ff5c5c"] {
+  fill:
+    rgba(
+      var(--fire-rgb, 255, 92, 92),
+      0.14
+    );
+
+  stroke:
+    rgba(
+      var(--fire-rgb, 255, 92, 92),
+      0.45
+    );
+}
+
+#relationsSection .relation-map-svg > rect[fill="#ff5c5c"] + text {
+  fill: #ff9292;
+}
+
+/* 土 — 반투명 골드 */
+
+#relationsSection .relation-map-svg > rect[fill="#daae43"] {
+  fill:
+    rgba(
+      var(--earth-rgb, 218, 174, 67),
+      0.14
+    );
+
+  stroke:
+    rgba(
+      var(--earth-rgb, 218, 174, 67),
+      0.45
+    );
+}
+
+#relationsSection .relation-map-svg > rect[fill="#daae43"] + text {
+  fill: #e4c36b;
+}
+
+/* 金 — 반투명 실버 */
+
+#relationsSection .relation-map-svg > rect[fill="#cdd3de"] {
+  fill:
+    rgba(
+      var(--metal-rgb, 205, 211, 222),
+      0.12
+    );
+
+  stroke:
+    rgba(
+      var(--metal-rgb, 205, 211, 222),
+      0.42
+    );
+}
+
+#relationsSection .relation-map-svg > rect[fill="#cdd3de"] + text {
+  fill: #e3e6ec;
+}
+
+/* 水 — 반투명 블루 */
+
+#relationsSection .relation-map-svg > rect[fill="#4a597a"] {
+  fill:
+    rgba(
+      var(--water-rgb, 74, 89, 122),
+      0.20
+    );
+
+  stroke:
+    rgba(154, 169, 200, 0.42);
+}
+
+#relationsSection .relation-map-svg > rect[fill="#4a597a"] + text {
+  fill: #9aa9c8;
+}
+
+/* 정보가 없는 칸 */
+
+#relationsSection .relation-map-svg > rect[fill="#30333c"] {
+  fill: rgba(255, 255, 255, 0.035);
+  stroke: rgba(255, 255, 255, 0.14);
+}
+
+#relationsSection .relation-map-svg > rect[fill="#30333c"] + text {
+  fill: rgba(255, 255, 255, 0.50);
+}
+
+/* 연결선 */
+
+#relationsSection .relation-map-line {
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  vector-effect: non-scaling-stroke;
+}
+
+/* 관계명 배경 */
+
+#relationsSection .relation-map-label-bg {
+  fill: rgba(255, 255, 255, 0.025);
+  stroke-opacity: 0.45;
+
+  vector-effect: non-scaling-stroke;
+}
+
+/* 관계 선택 */
+
+#relationsSection .relation-map-link {
+  cursor: pointer;
+  outline: none;
+}
+
+#relationsSection .relation-map-link:hover .relation-map-line,
+#relationsSection .relation-map-link:focus .relation-map-line {
+  stroke-width: 3;
+  stroke: #fff;
+}
+
+#relationsSection .relation-map-link:hover .relation-map-label-bg,
+#relationsSection .relation-map-link:focus .relation-map-label-bg {
+  fill: rgba(255, 255, 255, 0.085);
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-opacity: 1;
+}
+
+#relationsSection .relation-map-scroll:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.65);
+  outline-offset: 3px;
+}
+
+/* 안내 문장 */
+
+#relationsSection .relation-map-note {
+  margin: 10px 0 0;
+
+  color: rgba(255, 255, 255, 0.46);
+
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* 모바일 */
+
+@media (max-width: 600px) {
+  #relationsSection .relation-map-panel {
+    margin-top: 18px;
+    padding: 16px 12px 12px;
+
+    border-radius: 16px;
+  }
+
+  #relationsSection .relation-map-heading {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 9px;
+  }
+}

@@ -1,0 +1,550 @@
+/* =========================================
+   관계 페이지
+========================================= */
+
+.relations-section {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.relations-inner {
+  width: 100%;
+
+  min-height:
+    calc(100vh - 80px);
+
+  padding:
+    38px 40px;
+}
+
+
+.relations-heading {
+  margin-bottom: 20px;
+}
+
+
+.relations-heading h2 {
+  margin:
+    0 0 8px;
+
+  font-size: 42px;
+}
+
+
+.relations-heading p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================
+   요약
+========================================= */
+
+.relation-summary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+
+.relation-summary > div {
+  padding:
+    14px 18px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.relation-summary span {
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+}
+
+
+.relation-summary strong {
+  float: right;
+
+  font-size: 18px;
+}
+
+
+/* =========================================
+   카드
+========================================= */
+
+.relation-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 10px;
+}
+
+
+.relation-card {
+  position: relative;
+
+  min-height: 175px;
+
+  padding: 16px;
+
+  border-radius: 18px;
+
+  cursor: pointer;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.relation-card:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(255, 255, 255, 0.20);
+
+  box-shadow:
+    0 15px 30px
+    rgba(0, 0, 0, 0.25);
+}
+
+
+.relation-card.combine {
+  border-color:
+    rgba(100, 190, 145, 0.22);
+}
+
+
+.relation-card.conflict {
+  border-color:
+    rgba(190, 125, 120, 0.18);
+}
+
+
+.relation-card-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 8px;
+}
+
+
+.relation-card-top span,
+.relation-card-top small {
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+.relation-symbol {
+  margin:
+    18px 0 7px;
+
+  font-size: 31px;
+
+  font-weight: 800;
+}
+
+
+.relation-card > strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 15px;
+}
+
+
+.relation-card > p {
+  margin: 0;
+
+  font-size: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.40);
+}
+
+
+.relation-more {
+  position: absolute;
+
+  right: 14px;
+  bottom: 12px;
+
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+}
+
+
+.relation-empty {
+  padding: 50px;
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.relations-note {
+  margin:
+    13px 2px 0;
+
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.30);
+}
+
+
+/* =========================================
+   Modal
+========================================= */
+
+.relation-detail-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1900;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  background:
+    rgba(0, 0, 0, 0.60);
+
+  backdrop-filter:
+    blur(8px);
+
+  transition:
+    0.3s ease;
+}
+
+
+.relation-detail-overlay.open {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+.relation-detail-modal {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 2000;
+
+  width:
+    min(
+      580px,
+      calc(100vw - 36px)
+    );
+
+  max-height:
+    calc(100vh - 40px);
+
+  padding: 34px;
+
+  overflow-y: auto;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translate(-50%, -46%)
+    scale(0.96);
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(43, 43, 48, 0.98),
+      rgba(15, 15, 18, 0.97)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+
+  box-shadow:
+    0 30px 100px
+    rgba(0, 0, 0, 0.62);
+
+  transition:
+    0.3s ease;
+}
+
+
+.relation-detail-modal.open {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+}
+
+
+.relation-detail-close {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  color: #fff;
+
+  font-size: 23px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.relation-modal-heading {
+  text-align: center;
+
+  margin-bottom: 22px;
+}
+
+
+.relation-modal-heading > span {
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+}
+
+
+.relation-modal-symbol {
+  margin:
+    18px 0 5px;
+
+  font-size: 46px;
+
+  font-weight: 800;
+}
+
+
+.relation-modal-heading h2 {
+  margin:
+    0 0 5px;
+}
+
+
+.relation-modal-heading p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+
+.relation-modal-meta {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap: 8px;
+
+  margin-bottom: 12px;
+}
+
+
+.relation-modal-meta > div,
+.relation-modal-section {
+  padding: 15px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.relation-modal-meta span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+.relation-modal-meta strong {
+  font-size: 12px;
+}
+
+
+.relation-modal-section {
+  margin-bottom: 10px;
+}
+
+
+.relation-modal-section h3 {
+  margin:
+    0 0 8px;
+
+  font-size: 14px;
+}
+
+
+.relation-modal-section p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+
+.relation-modal-section.result {
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+
+.relation-modal-section.positive {
+  border-color:
+    rgba(100, 190, 145, 0.17);
+}
+
+
+.relation-modal-section.caution {
+  border-color:
+    rgba(220, 170, 100, 0.15);
+}
+
+
+.relation-modal-note {
+  margin:
+    17px 3px 0;
+
+  font-size: 9px;
+
+  line-height: 1.7;
+
+  color:
+    rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================================
+   반응형
+========================================= */
+
+@media (
+  max-width: 900px
+) {
+
+  .relation-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
+  }
+
+}
+
+
+@media (
+  max-width: 600px
+) {
+
+  .relations-inner {
+    padding:
+      28px 18px;
+  }
+
+
+  .relation-grid,
+  .relation-summary {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .relation-modal-meta {
+    grid-template-columns:
+      1fr;
+  }
+
+}

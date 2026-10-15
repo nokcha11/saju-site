@@ -1,0 +1,1013 @@
+/* =========================================
+   용신 독립 페이지
+
+   상단 fixed 메뉴와 겹치지 않도록
+   페이지 안쪽에서 충분한 공간 확보
+========================================= */
+
+#usefulGodSection {
+  display: block;
+
+  width: 100%;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  margin: 0 !important;
+
+  padding:
+    120px
+    32px
+    52px !important;
+
+  box-sizing: border-box;
+
+  scroll-margin-top: 0 !important;
+}
+
+
+.useful-god-section {
+  position: relative;
+
+  clear: both;
+}
+
+
+.useful-god-inner {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin:
+    0
+    auto;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 28px;
+
+  background:
+    rgba(29, 29, 35, 0.76);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  box-shadow:
+    0 22px 70px
+    rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================
+   제목
+========================================= */
+
+.useful-god-title {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 22px;
+}
+
+
+.useful-god-eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.36);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.17em;
+}
+
+
+.useful-god-title h2 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #ffffff;
+
+  font-size: 42px;
+
+  letter-spacing:
+    -0.04em;
+}
+
+
+.useful-god-title p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.54);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+.useful-god-method {
+  flex:
+    0 0 auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 5px;
+
+  padding:
+    12px
+    15px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.03);
+}
+
+
+.useful-god-method strong {
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  font-size: 13px;
+}
+
+
+.useful-god-method span {
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   억부 / 조후 / 최종 설명
+========================================= */
+
+.useful-god-method-guide {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+
+.useful-god-method-guide article {
+  padding:
+    17px
+    18px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.065);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+
+.useful-god-method-guide span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.useful-god-method-guide strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.86);
+
+  font-size: 14px;
+}
+
+
+.useful-god-method-guide p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.52);
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   쉽게 말하면
+========================================= */
+
+.useful-god-main-reading {
+  margin-bottom: 18px;
+
+  padding:
+    18px
+    20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.027);
+}
+
+
+.useful-god-main-reading > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+.useful-god-main-reading > strong {
+  display: block;
+
+  color:
+    rgba(255, 255, 255, 0.88);
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================
+   최종 용희기구
+========================================= */
+
+.useful-god-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 12px;
+}
+
+
+.useful-god-card {
+  --element-rgb:
+    255, 255, 255;
+
+  min-height: 210px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(
+      var(--element-rgb),
+      0.18
+    );
+
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        var(--element-rgb),
+        0.055
+      ),
+      rgba(
+        255,
+        255,
+        255,
+        0.018
+      )
+    );
+}
+
+
+.useful-god-card[data-element="wood"] {
+  --element-rgb:
+    89, 190, 123;
+}
+
+
+.useful-god-card[data-element="fire"] {
+  --element-rgb:
+    220, 99, 87;
+}
+
+
+.useful-god-card[data-element="earth"] {
+  --element-rgb:
+    211, 162, 72;
+}
+
+
+.useful-god-card[data-element="metal"] {
+  --element-rgb:
+    196, 201, 211;
+}
+
+
+.useful-god-card[data-element="water"] {
+  --element-rgb:
+    80, 125, 220;
+}
+
+
+.useful-god-card-head {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+
+.useful-god-card-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 800;
+}
+
+
+.useful-god-card-head small {
+  display: block;
+
+  color:
+    rgba(255, 255, 255, 0.40);
+
+  font-size: 10px;
+
+  line-height: 1.45;
+}
+
+
+.useful-god-symbol {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 46px;
+
+  height: 46px;
+
+  flex:
+    0 0 46px;
+
+  border:
+    1px solid
+    rgba(
+      var(--element-rgb),
+      0.22
+    );
+
+  border-radius: 14px;
+
+  background:
+    rgba(
+      var(--element-rgb),
+      0.08
+    );
+
+  color:
+    rgb(
+      var(--element-rgb)
+    );
+
+  font-size: 23px;
+
+  font-weight: 800;
+}
+
+
+.useful-god-name {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color:
+    rgb(
+      var(--element-rgb)
+    );
+
+  font-size: 25px;
+}
+
+
+.useful-god-name span {
+  margin-left: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.50);
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+.useful-god-card p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.57);
+
+  font-size: 13px;
+
+  line-height: 1.72;
+}
+
+
+/* =========================================
+   공통 소제목
+========================================= */
+
+.useful-god-section-title {
+  margin-bottom: 14px;
+}
+
+
+.useful-god-section-title > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.34);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.13em;
+}
+
+
+.useful-god-section-title h3 {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  font-size: 17px;
+}
+
+
+/* =========================================
+   조후
+========================================= */
+
+.useful-god-johu {
+  margin-top: 18px;
+
+  padding: 20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+
+.useful-god-johu-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 10px;
+}
+
+
+.useful-god-johu-grid > div {
+  padding:
+    13px
+    14px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  border-radius: 13px;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+}
+
+
+.useful-god-johu-grid span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+
+  font-size: 10px;
+}
+
+
+.useful-god-johu-grid strong {
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  font-size: 13px;
+}
+
+
+.useful-god-johu > p {
+  margin:
+    14px
+    2px
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.52);
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   일 적용
+========================================= */
+
+.useful-god-work-reading {
+  margin-top: 14px;
+
+  padding:
+    18px
+    20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.024);
+}
+
+
+.useful-god-work-reading span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+.useful-god-work-reading p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================
+   판정 근거
+========================================= */
+
+.useful-god-evidence {
+  margin-top: 14px;
+
+  padding: 20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.065);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+}
+
+
+.useful-god-evidence h3 {
+  margin:
+    0
+    0
+    14px;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 14px;
+}
+
+
+.useful-god-evidence-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap: 10px;
+}
+
+
+.useful-god-evidence-grid > div {
+  padding:
+    13px
+    14px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  border-radius: 13px;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+}
+
+
+.useful-god-evidence-grid span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.37);
+
+  font-size: 10px;
+}
+
+
+.useful-god-evidence-grid strong {
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   특수격
+========================================= */
+
+.useful-god-special-note {
+  margin-top: 12px;
+
+  padding:
+    15px
+    18px;
+
+  border:
+    1px solid
+    rgba(221, 166, 91, 0.18);
+
+  border-radius: 15px;
+
+  background:
+    rgba(221, 166, 91, 0.04);
+}
+
+
+.useful-god-special-note strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color:
+    rgba(245, 201, 133, 0.88);
+
+  font-size: 12px;
+}
+
+
+.useful-god-special-note p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.50);
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   하단 메모
+========================================= */
+
+.useful-god-note {
+  margin:
+    15px
+    2px
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.30);
+
+  font-size: 10px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   Tablet
+========================================= */
+
+@media (
+  max-width: 1100px
+) {
+
+  #usefulGodSection {
+    padding:
+      105px
+      24px
+      40px !important;
+  }
+
+
+  .useful-god-inner {
+    padding: 28px;
+  }
+
+
+  .useful-god-grid,
+  .useful-god-johu-grid,
+  .useful-god-evidence-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+  }
+
+
+  .useful-god-method-guide {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (
+  max-width: 640px
+) {
+
+  #usefulGodSection {
+    padding:
+      90px
+      12px
+      24px !important;
+  }
+
+
+  .useful-god-inner {
+    padding:
+      22px
+      16px;
+
+    border-radius: 20px;
+  }
+
+
+  .useful-god-title {
+    flex-direction: column;
+  }
+
+
+  .useful-god-title h2 {
+    font-size: 34px;
+  }
+
+
+  .useful-god-method {
+    align-items: flex-start;
+  }
+
+
+  .useful-god-grid,
+  .useful-god-johu-grid,
+  .useful-god-evidence-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .useful-god-card {
+    min-height: auto;
+  }
+
+}
+
+/* =========================================
+   2026-10-15 오행별 카드 색상
+   - 일상적인 말로 보면
+   - 왜 이렇게 나왔을까
+========================================= */
+.useful-god-plain {
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 18px;
+  background: rgba(255,255,255,.018);
+}
+
+.useful-god-plain h3 {
+  margin: 0 0 14px;
+  color: rgba(255,255,255,.88);
+  font-size: 15px;
+}
+
+.useful-god-plain-row,
+.useful-god-evidence-grid > div {
+  --element-rgb: 200, 208, 220;
+}
+
+.useful-god-plain-row[data-element="wood"],
+.useful-god-evidence-grid > div[data-element="wood"] { --element-rgb: 89, 190, 123; }
+.useful-god-plain-row[data-element="fire"],
+.useful-god-evidence-grid > div[data-element="fire"] { --element-rgb: 230, 92, 83; }
+.useful-god-plain-row[data-element="earth"],
+.useful-god-evidence-grid > div[data-element="earth"] { --element-rgb: 211, 162, 72; }
+.useful-god-plain-row[data-element="metal"],
+.useful-god-evidence-grid > div[data-element="metal"] { --element-rgb: 198, 204, 218; }
+.useful-god-plain-row[data-element="water"],
+.useful-god-evidence-grid > div[data-element="water"] { --element-rgb: 80, 135, 230; }
+
+.useful-god-plain-row {
+  display: grid;
+  grid-template-columns: minmax(130px, .32fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin-top: 10px;
+  padding: 16px 18px;
+  border: 1px solid rgba(var(--element-rgb), .48);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(var(--element-rgb), .09), rgba(var(--element-rgb), .018) 42%, rgba(255,255,255,.012));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.useful-god-plain-key strong {
+  display: block;
+  margin-bottom: 5px;
+  color: rgb(var(--element-rgb));
+  font-size: 17px;
+}
+
+.useful-god-plain-key span {
+  color: rgba(255,255,255,.48);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.useful-god-plain-row p {
+  margin: 0;
+  color: rgba(255,255,255,.68);
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.useful-god-evidence-grid > div[data-element]:not([data-element=""]) {
+  border-color: rgba(var(--element-rgb), .46);
+  background:
+    linear-gradient(145deg, rgba(var(--element-rgb), .075), rgba(255,255,255,.014));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.useful-god-evidence-grid > div[data-element]:not([data-element=""]) strong {
+  color: rgb(var(--element-rgb));
+}
+
+.useful-god-evidence-grid > div p {
+  margin: 8px 0 0;
+  color: rgba(255,255,255,.55);
+  font-size: 11px;
+  line-height: 1.58;
+}
+
+@media (max-width: 760px) {
+  .useful-god-plain-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px;
+  }
+}
